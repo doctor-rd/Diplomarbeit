@@ -1,0 +1,163 @@
+\def\homeo{Homöomorphi}
+\def\cov{Überlagerung}
+\def\zus{zusammenhängend}
+\def\mannig{Mannigfaltigkeit}
+\def\zusman{\zus e \mannig}
+\def\hol{holomorph}
+\def\rf{Riemannsche Fl\"ache}
+\section{Vorbereitungen II}
+\subsection{\cov stheorie}
+Eine \zusman\ ist ein \zus er topologischer Raum, der lokal homöomorph zum $\mathbbm R^n$ ist, d.h. eine $n$-dimensionale reelle $C^0$-\mannig. Eine \zusman\ ist insbesondere wegweise und lokal wegweise \zus.
+% Forster S. 24
+\begin{df}
+\label{defcov}
+Seien $X$ und $Y$ \zusman en. Eine stetige Abbildung $p:Y\longrightarrow X$ heißt \textbf{\cov}, falls folgendes gilt:\smallskip\\
+Jedes $x\in X$ hat eine offene Umgebung $U$, so daß sich $p^{-1}(U)$ als Vereinigung von paarweise disjunkten offenen Teilmengen $V_j\subset X$, wobei $j$ ein Element aus einer Indexmenge $J$ ist, darstellen läßt:
+\[
+p^{-1}(U)=\bigcup\limits_{j\in J}V_j
+\]
+Zusätzlich sind für alle $j\in J$ die Einschränkungen $p_{|V_j}:V_j\longrightarrow U$ \homeo smen.
+\\\emph{Sprechweise:} $Y$ ist eine \cov\ von $X$.
+\end{df}
+%Q Fo S26 thm 4.16
+Für $y_1,y_2\in Y$ haben $p^{-1}(y_1)$ und $p^{-1}(y_2)$ die gleiche Mächtigkeit. Falls diese endlich ist, d.h. $\#p^{-1}(y_1)=n$ mit $n\in\nat$, bezeichnet $n$ den \textbf{Grad} von $p$. Insbesondere ist eine \cov\ $p:Y\longrightarrow X$ surjektiv, da $Y$ nicht-leer ist.\footnote{siehe Theorem 4.16 auf S.26 in \cite{Forster}}
+%Q Fo S.31
+\begin{df}
+\label{defunivcov}
+Seien $X$ und $Y$ \zusman en, und sei $p:Y\longrightarrow X$ eine \cov. Dann heißt das Paar $(Y,p)$ eine universelle \cov\ von $X$, falls für jede \cov\ $q:Z\longrightarrow X$, wobei $Z$ eine \zusman\ ist, und jedes Paar $y\in Y$, $z\in Z$ mit $p(y)=q(z)$ genau eine \cov\ $f:Y\longrightarrow Z$ \ex, so daß $f(y)=z$ und $q\circ f=p$ gilt, d.h. folgendes Diagramm kommutiert:
+$$
+\xymatrix
+{
+Y\ar[dr]_p\ar@{.>}[rr]^f&&Z\ar[ld]^q\\
+&X
+}
+$$
+\end{df}
+Aus der universellen Eigenschaft folgt, daß eine universelle \cov\ bis auf Homöomorphie eindeutig ist.
+
+%Q Fo S. 32 Thm 5.2, 5.3
+Zu jeder \zus en \mannig\ \ex\ eine \zus e, einfach \zusman\ $\widetilde X$ mit einer \cov\ $p:\widetilde X\longrightarrow X$. 
+Nun ist jede einfach \zus e \cov\ eine universelle \cov, also ist $(\widetilde X,p)$ eine universelle \cov\ von $X$.\footnote{siehe Theorem 5.2, 5.3 auf S.32 in \cite{Forster}}
+\begin{df}
+Seien $X$ und $Y$ \zusman en, und sei $p:Y\longrightarrow X$ eine \cov. Eine \textbf{Decktransformation} der \cov\ $p$ ist ein \homeo smus $f:Y\longrightarrow Y$, für den $p=p\circ f$ gilt.
+\[\xymatrix{
+Y\ar[rr]^f\ar[rd]_p&&Y\ar[ld]^p\\
+&X
+}\]
+Die Decktransformationen von $p$ bilden eine Gruppe, diese bezeichnen wir mit $\Aut(p)$.
+\end{df}
+%Q Fo S.34 Thm 5.6
+\begin{thm}
+\label{covdeckfund}
+Sei $(\widetilde X,p)$ eine universelle \cov\ von $X$, dann ist $\Aut(p)$ isomorph zur Fundamentalgruppe $\pi_1(X)$ von $X$.
+\end{thm}
+Beweis: Theorem 5.6 auf S.34 in \cite{Forster}\bigskip\\
+Sei $X$ eine \zusman\ und $(\widetilde X,p)$ eine universelle \cov\ von $X$. Sei $q:Y\longrightarrow X$ eine weitere \cov, wobei auch $Y$ eine \zusman\ sei. Dann \ex\ eine \cov\ $f:\widetilde X\longrightarrow Y$ mit $p=q\circ f$.
+\[\xymatrix{
+\widetilde X\ar[rr]^f\ar[rd]_p&&Y\ar[ld]^q\\
+&X
+}\]
+$\widetilde X$ ist eine einfach \zus e \cov\ von $Y$, also eine universelle \cov.
+$\Aut(f)$ ist eine Untergruppe von $\Aut(p)$, denn für $\varphi\in\Aut(f)$ gilt per Definition $f=f\circ\varphi$. Wegen $p=q\circ f$ erhalten wir
+\[
+p=q\circ f=q\circ f\circ\varphi=p\circ\varphi
+\]
+\sieg
+Sei $(\widetilde X,p)$ eine universelle \cov\ von $X$, dann \ex\ zu $x,y\in\widetilde X$ mit $p(x)=p(y)$ ein $f\in\Aut(p)$ mit $f(x)=y$, d.h. $\Aut(p)$ operiert transitiv auf den Fasern von $p$. Dies sieht man leicht, wenn man die universelle Eigenschaft von $p$ gemäß Definition \ref{defunivcov} ausnutzt, indem man $Y:=\widetilde X$ und $Z:=\widetilde X$ setzt. Wir nennen eine \cov\ mit dieser Eigenschaft \textbf{galoissch}.
+
+Wir führen auf $\widetilde X$ eine Äquivalenzrelation ein, indem wir zwei Punkte \mbox{$x,y\in Y$} identifizieren, falls ein $\varphi\in\Aut(p)$ mit $\varphi(x)=y$ \ex. Den Quotientenraum bezeichnen wir mit $\widetilde X/\Aut(p)$. Nun gilt
+\[p(x)=p(y)\Longleftrightarrow\exists\varphi\in\Aut(p)\colon\varphi(x)=y\]
+Also induziert $p$ eine bijektive Abbildung
+\[\widetilde p:\widetilde X/\Aut(p)\longrightarrow X\]
+\begin{bem}
+\label{univueberfdas}
+$\widetilde p$ ist ein \homeo smus.
+\end{bem}
+\bew
+$$
+\xymatrix
+{
+\widetilde X/\Aut(p)\ar[rr]^{\widetilde p}&&X\\
+Y\ar[u]^q\ar[urr]_p
+}
+$$
+Die Stetigkeit von $\widetilde p$ folgt aus der Finalität der Quotientenabbildung $q$. Es bleibt zu zeigen, daß $\widetilde p^{-1}$ stetig ist. Dazu zeigen wir, daß für jedes $\overline x\in\widetilde X/\Aut(p)$ das Bild einer Umgebung von $\overline x$ unter $\widetilde p$ eine Umgebung von $\widetilde p(x)$ ist. Sei nun $\overline x\in\widetilde X/\Aut(p)$, dann hat $p(x)$ eine Umgebung $U$, so daß $p^{-1}(U)=\bigcup_{j\in J}V_j$ disjunkte Vereinigung offener Mengen ist und die $p_{|V_j}$ \homeo smen sind. Nun liegt $x$ in einem dieser $V_j$, daher fixieren wir von nun an dieses $V_j$.
+
+Sei $O$ eine Umgebung von $\overline x$ in $\widetilde X/\Aut(p)$, dann ist $q^{-1}(O)$ eine Umgebung von $x$, und $W:=q^{-1}(O)\cap V_j$ ist ebenfalls eine Umgebung von $x$. $p(W)$ ist eine Umgebung von $p(x)$, da $p_{|V_j}$ ein \homeo smus ist und ist enthalten in $\widetilde p(O)$, damit ist $\widetilde p(O)$ eine Umgebung von $\widetilde p(\overline x)$.\sieg
+Wir wissen nun:
+\begin{minilemma}
+Sei $(\widetilde X,p)$ eine universelle \cov\ einer \zus en \mannig\ $X$, dann gilt $\widetilde X/\Aut(p)\cong X$.
+\end{minilemma}
+\begin{df}
+Seien $p_1:Y_1\longrightarrow X$ und $p_2:Y_1\longrightarrow X$ \cov en. $(Y_1,p_1)$ und $(Y_2,p_2)$ heißen homöomorph als \cov en von $X$, falls ein \homeo smus $f:Y_1\longrightarrow Y_2$ \ex, so daß $p_2\circ f=p_1$ gilt.
+\[\xymatrix{
+Y_1\ar[rd]_{p_1}\ar[rr]^f&&Y_2\ar[ld]^{p_2}\\
+&X
+}\]
+Einfacher gesagt: Jedes $y_1\in Y_1$, das über einem $x\in X$ liegt, wird unter $f$ auf ein $y_2\in Y_2$ abgebildet, das über $x$ liegt.
+\end{df}
+\begin{bem}
+\label{eqrelisossdfjko}
+Die soeben definierte Relation zwischen \cov en ist eine Äquivalenzrelation.
+\end{bem}
+Denn: Für die Reflexivität setzt man $f:=\id$, Transitivität erhält man durch komponieren. Für die Symmetrie formt man wie folgt um:
+\[p_2\circ f=p_1=p_1\circ f^{-1}\circ f\Longrightarrow p_2=p_1\circ f^{-1}\]
+\sieg
+Sei $(\widetilde X,p)$ eine universelle \cov\ von $X$, und sei $q:Y\longrightarrow X$ eine weitere \cov. Dann \ex\ eine \cov\ $f:\widetilde X\longrightarrow Y$ mit $p=q\circ f$.
+
+Seien $\overline x,\overline y\in\widetilde X/\Aut(f)$ mit $\overline x=\overline y$, dann gilt $f(x)=f(y)$ und wegen $p=q\circ f$ gilt auch $p(x)=p(y)$. Wir können folgende Abbildungen in naheliegender Weise repräsentantenweise definieren:
+\begin{eqnarray*}
+\widetilde p:\widetilde X/\Aut(f)&\longrightarrow&X\\
+\widetilde f:\widetilde X/\Aut(f)&\longrightarrow&Y
+\end{eqnarray*}
+Wegen Bemerkung \ref{univueberfdas} ist $\widetilde f:\widetilde X/\Aut(f)\longrightarrow Y$ ein \homeo smus, also ist $\widetilde p=q\circ\widetilde f$ eine \cov, die homöomorph zu $q$ ist.
+
+Unser Resultat ist nun, daß jede \cov\ von $X$ homöomorph zu $\widetilde X/H$ ist, wobei $H$ eine Untergruppe von $\Aut(p)$ ist.
+\begin{satz}
+\label{covquotientenmaster}
+Sei $p:\widetilde X\longrightarrow X$ eine universelle \cov\ von $X$, und sei $q:Y\longrightarrow X$ eine weitere \cov\ vom Grad $n$. Dann \ex\ eine \cov\ $f:\widetilde X\longrightarrow Y$ mit $p=q\circ f$. $\Aut(f)$ hat dann endlichen Index in $\Aut(p)$, und es gilt $[\Aut(p):\Aut(f)]=n$.
+\end{satz}
+\[\xymatrix{
+\widetilde X\ar[rr]^f\ar[rd]_p&&Y\ar[ld]^q\\
+&X
+}\]
+\bew
+Sei $M$ die Menge der \cov en $\varphi:\widetilde X\longrightarrow Y$, für die $p=q\circ\varphi$ gilt. $\Aut(p)$ operiert auf $M$ via
+\begin{eqnarray*}
+\Aut(p)\times M&\longrightarrow&M\\
+(\tau,\varphi)&\longmapsto&\varphi\circ\tau
+\end{eqnarray*}
+Es gilt $f\in M$, der Stabilisator von $f$ ist per Definition $\Aut(f)$. Die Operation ist transitiv, denn seien $\varphi_1,\varphi_2\in M$, und sei $y\in Y$. Wähle $x_1\in\varphi_1^{-1}(y)$ und $x_2\in\varphi_2^{-1}(y)$, dann \ex\ ein $\tau\in\Aut(p)$ mit $\tau(x_1)=x_2$, da $p$ galoissch ist. Es gilt $\varphi_2\circ\tau(x_1)=\varphi_1(x_1)$, daraus folgt $\varphi_2\circ\tau=\varphi_1$.
+
+Sei $x\in\widetilde X$, dann \ex\ wegen der Universalität von $p$ zu jedem \mbox{$y\in q^{-1}(p(x))$} genau eine \cov\ $\varphi:\widetilde X\longrightarrow Y$ mit $\varphi(x)=y$ und $p=q\circ\varphi$. Die Menge $q^{-1}(p(x))$ hat nach Voraussetzung genau $n$ Elemente, damit hat auch $M$ genau $n$ Elemente.
+
+Nun operiert $\Aut(p)$ transitiv auf $M$, also hat der Orbit von $f$ genau $n$ Elemente. Nach Bemerkung \ref{stabilisatormaster} gilt $[\Aut(p):\Aut(f)]=n$.\sieg
+\subsection{\rf n}
+%Q Fo S.29 4.23, S.30 4.25 - um zu sehen, daß t eine Ü ist.
+Seien $X$ und $Y$ kompakte \rf n, und sei $f:X\longrightarrow Y$ eine nicht-konstante \hol e Abbildung. Sei $A$ die Menge der kritischen Punkte von $f$, dann ist $A$ endlich und
+\[
+f_{|A}:X\setminus A\longrightarrow Y\setminus f(A)
+\]
+ist eine \cov.\footnote{siehe S.29 in \cite{Forster}} Wir nennen $f$ eine \textbf{verzweigte \hol e \cov}.\bigskip\\
+Nun kommt eine fundamentale Tatsache aus der Theorie der \rf n, die wir später benötigen werden und deren Beweis nicht trivial ist:
+%Q Foster S.52
+\begin{thm}
+\label{forstercovermaster}
+Seien $X$, $Y$ und $Z$ kompakte \rf n und seien $\pi:Y\longrightarrow X$, $\tau:Z\longrightarrow X$ verzweigte \hol e \cov en. Sei $S\subset X$ eine endliche Teilmenge. Dann kann jede faser-erhaltende bi\hol e Abbildung
+\[\varphi:Y\setminus\pi^{-1}(S)\longrightarrow Z\setminus\tau^{-1}(S)\]
+zu einer faser-erhaltenden bi\hol en Abbildung $\widetilde\varphi:Y\longrightarrow Z$, d.h. $\tau\circ\widetilde\varphi=\pi$, fortgesetzt werden.
+\end{thm}
+Beweis: Theorem 8.5 auf S.52 in \cite{Forster}\bigskip\\
+Sei $X$ eine vollständige Kurve über $\C$, dann können wir diese als kompakte \rf\ auffassen, und jeder Morphismus zwischen vollständigen Kurven gibt eine \hol e Abbildung. Umgekehrt läßt sich jede kompakte \rf\ als vollständige Kurve realisieren. Jede \hol e Abbildung zwischen kompakten \rf n ist algebraisch, d.h. ein Morphismus zwischen vollständigen Kurven.
+
+In naheliegender Weise können wir einer verzweigten \cov\ einen \textbf{Grad} zuordnen. Der Körper der meromorphen Funktionen ${\cal M}(X)$ ist isomorph zum Körper der rationalen Funktionen $K(X)$. Aus dem folgenden Theorem folgt damit, daß uns ein endlicher Morphismus vom Grad $d$ eine verzweigte \hol e \cov\ vom Grad $d$ gibt.
+\begin{thm}
+\label{alg_fkt_grad}
+Sei $\pi:Y\longrightarrow X$ eine \hol e \cov\ vom Grad $d$, dann induziert diese einen \khom
+\begin{eqnarray*}
+\pi^*:{\cal M}(X)&\longrightarrow&{\cal M}(Y)\\
+f&\longmapsto&f\circ\pi
+\end{eqnarray*}
+Die \KE\ ${\cal M}(Y):{\cal M}(X)$ ist eine algebraische Erweiterung vom Grad $d$.
+\end{thm}
+Beweis: Theorem 8.3 auf S.50 in \cite{Forster}

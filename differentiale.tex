@@ -1,0 +1,382 @@
+\def\deri{Derivation}
+\def\crit{\mathop{\rm Crit}\nolimits}
+\def\ann{\mathop{\rm Ann}\nolimits}
+\section{Differentiale}
+In diesem Abschnitt werden die kritischen Punkte von Morphismen zwischen Kurven definiert. Das Ziel ist dann, die Menge der kritischen Punkte eines endlichen Morphismus zu kennzeichnen. Wir werden sehen, daß diese mit dem Träger einer Garbe übereinstimmt und sogar endlich ist.
+
+Ich erinnere daran, daß bei uns alle Körper Charakteristik $0$ haben. Im Folgenden ist $C$ ein \algabg er Körper und $K$ ein nicht notwendig \algabg er Körper.
+\subsection{Tangential- und Cotangentialraum}
+\begin{df}
+Sei $A$ ein Ring, $B$ eine $A$-Algebra und $M$ ein $B$-Modul. Eine Abbildung $d:B\longrightarrow M$ heißt $A$-\textbf{\deri}, falls folgendes gilt:
+\begin{enumerate}
+\item $d$ ist additiv
+\item $d$ genügt der Produktregel
+\item $d(a)=0$ für alle $a\in A$
+\end{enumerate}
+Die Menge aller $A$-\deri en $d:B\longrightarrow M$ bezeichnen wir mit $\Der_A(B,M)$.
+\end{df}
+\begin{df}
+Sei $A$ ein Ring, $B$ eine $A$-Algebra, dann ist der \textbf{Modul der relativen Differentialformen} von $B$ über $A$ ein $B$-Modul $\Omega_{B/A}$ mit einer $A$-\deri\ $d_{B/A}:B\longrightarrow\Omega_{B/A}$, welche folgende universelle Eigenschaft hat:
+\begin{minilemma}
+Zu jeder $A$-\deri\ $v$ in einen $B$-Modul $M$ \ex\ eindeutig eine $B$-lineare Abbildung $w:\Omega_{B/A}\longrightarrow M$, so daß $w\circ d_{B/A}=v$ gilt.
+\end{minilemma}
+\[
+\xymatrix{
+B\ar[rrd]_v\ar[rr]^{d_{B/A}}&&\Omega_{B/A}\ar@{.>}[d]^w\\
+&&M
+}
+\]
+\end{df}
+Eine solche \deri\ $d_{B/A}$ kann man zu jeder $A$-Algebra $B$ konstruieren.
+\bigskip\\
+%Q Ha S.40
+Sei $A$ eine lokale $K$-Algebra mit maximalem Ideal $\m$, und sei $v:A\longrightarrow M$ eine $K$-\deri, dann gilt nach der Produktregel $v(\m^2)\subset\m M$, denn
+\[
+a,b\in\m\Longrightarrow v(ab)=av(b)+bv(a)\in\m M
+\]
+Wenn nun $M=A/\m$ gilt, ist der Körper $M$ vermöge der Quotientenabbildung ein $A$-Modul, und es gilt $\m M=0$. Das heißt, die im Folgenden häufig auftretenden \deri en $v:A\longrightarrow A/\m$ verschwinden auf $\m^2$.
+\begin{lem}
+\label{disk_supertrick}
+Sei $A$ eine lokale $K$-Algebra mit maximalem Ideal $\m$. Sei \mbox{$K\cong A/\m$} als $K$-Algebren, dann hat jedes $a\in A$ eine eindeutige Darstellung $a=a_1+a_2$ mit $a_1\in K$ und $a_2\in\m$.
+\end{lem}
+\bew
+Setze $a_1:=(a\mod\m)$ (man denke an den $K$-Algebrenisomorphismus) und \mbox{$a_2:=a-a_1$}. Dann gilt $a_1\in K$, und es gilt $a_2\in\m$, denn
+\[(a_2\mod\m)=(a\mod\m)-(a_1\mod\m)=(a\mod\m)-(a\mod\m)=0\]
+Aus $K\cap\m=\{0\}$ folgt die Eindeutigkeit dieser Darstellung.\sieg
+%Q Alg Geo 2 Affine Schemata Handout S.10
+\begin{bem}
+\label{tauschenquotlokal}
+Sei $A$ ein kommutativer Ring, $S\subset A$ ein multiplikatives System, $A_S$ die Lokalisierung nach $S$ und $j:A\longrightarrow A_S$ die kanonische ``Einbettung''. Dann gibt $\p\longmapsto j(\p)A_S$ eine Bijektion zwischen den Primidealen $\p\subset A$ mit $\p\cap S=\emptyset$ und den Primidealen von $A_S$. Sei $q:A\longrightarrow A/\p$ die Quotientenabbildung, dann gilt $A_S/j(\p)A_S\cong(A/\p)[q(S)]$.
+\end{bem}
+\begin{df}
+Sei $X$ eine $C$-\var, $x\in X$ ein abgeschlossener Punkt und $\O_{X,x}$ der Halm in $x$. Sei $\m_x\subset\O_{X,x}$ das maximale Ideal, dann heißt
+\begin{enumerate}
+\item $\Der_C(\O_{X,x},C)$ der \textbf{Tangentialraum} von $X$ im Punkt $x$.
+\item $\m_x/\m_x^2$ der \textbf{Cotangentialraum} von $X$ im Punkt $x$.
+\end{enumerate}
+\end{df}
+\begin{bem}
+Es gilt $C\cong\O_{X,x}/\m_x$ und damit ist $C$ über die Quotientenabbildung $q:\O_{X,x}\longrightarrow C$ ein $\O_{X,x}$-Modul.
+\end{bem}
+\bew
+$\O_{X,x}$ ist die Lokalisierung einer endlich erzeugten $C$-Algebra, d.h. $\O_{X,x}\cong A_{\m}$, wobei $A$ eine endlich erzeugte $C$-Algebra sei und $\m\subset A$ ein maximales Ideal. Aus dem Hilbertschen Nullstellensatz folgt $C\cong A/\m$. Nach Bemerkung \ref{tauschenquotlokal} gilt
+\[A_{\m}/\m A_{\m}\cong A/\m\]
+Insgesamt erhalten wir
+\[\O_{X,x}/\m_x\cong A_{\m}/\m A_{\m}\cong A/\m\]
+\sieg
+\begin{satz}
+\label{dualcotandemisttandem}
+Der Tangential- und Cotangentialraum sind $C$-Vektorräume und es gilt
+\[\hom_C(\m_x/\m_x^2,C)=\Der_C(\O_{X,x},C)\]
+\end{satz}
+\bew
+Sei $v\in\Der_C(\O_{X,x},C)$, dann gilt $v(\m_x^2)=0$. Wir erhalten eine Linearform $v':\m_x/\m_x^2\longrightarrow C$, indem wir $v$ repräsentantenweise operieren lassen. Man sieht leicht, daß diese Zuordnung $C$-linear ist.
+
+Diese Zuordnung ist auch injektiv, denn sei $v'=0$, dann gilt $v_{|\m_x}=0$. Zu zeigen ist nun $v=0$. Sei $a\in\O_{X,x}$, dann können wir $a$ nach Lemma \ref{disk_supertrick} als Summe aus $a_1\in C$ und $a_2\in\m_x$ schreiben. Also gilt
+\[v(a)=v(a_1)+v(a_2)=0+0=0\]
+
+Jetzt müssen wir noch sehen, daß diese Zuordnung surjektiv ist. Sei \\\mbox{$w:\m_x/\m_x^2\longrightarrow C$} eine Linearform. Wir definieren eine Abbildung $v:\O_{X,x}\longrightarrow C$ wie folgt: Für $a=a_1+a_2$ mit $a_1\in C$ und $a_2\in\m_x$ setze $v(a):=w(\overline{a_2})$. Dann gilt trivialerweise $v(c)=0$ für $c\in C$. Seien nun $a=a_1+a_2$ und $b=b_1+b_2$ aus $\O_{X,x}$. Dann gilt
+\begin{eqnarray*}
+v(ab)&=&v((a_1+a_2)(b_1+b_2))\\
+&=&v(a_1 b_2)+v(a_2 b_1)\\
+&=&a_1 v(b_2)+b_1 v(a_2)\\
+&=&a v(b)+b v(a)
+\end{eqnarray*}
+Also ist $v$ eine $C$-\deri\ auf $\O_{X,x}$. Es gilt $v'=w$, damit ist die Surjektivität gezeigt.\sieg
+%Q Lüt S. 249
+\begin{fol}
+Sei $X$ eine Kurve (Erinnerung: wir betrachten ausschließlich glatte Kurven), $x\in X$ ein abgeschlossener Punkt, dann sind der Tangentialraum und der Cotangentialraum eindimensionale $C$-Vektorräume.
+\end{fol}
+\bew
+$\O_{X,x}$ ist ein diskreter Bewertungsring, also ist $\m/\m^2$ ein eindimensionaler $C$-Vektor\-raum. Nach Satz \ref{dualcotandemisttandem} ist der Tangentialraum der Dualraum vom Cotan\-gential\-raum, also ist auch der Tangentialraum eindimensional.\sieg
+Sei $\varphi:A\longrightarrow B$ ein $K$-Algebrenhomomorphismus, und sei $v:B\longrightarrow M$ eine $K$-\deri\ in einen $B$-Modul $M$. Vermöge $\varphi$ ist $M$ dann ein $A$-Modul, und $v\circ\varphi:A\longrightarrow M$ ist eine $K$-\deri\ auf $A$, denn seien $a,b\in A$, dann gilt \[v(\varphi(ab))=v(\varphi(a)\varphi(b))=\varphi(b)v(\varphi(a))+\varphi(a)v(\varphi(b))=bv(\varphi(a))+av(\varphi(b))\]
+und wegen der $K$-Linearität von $\varphi$ gilt $v\circ\varphi(k)=0$ für $k\in K$. Additivität gilt trivialerweise und damit ist gezeigt, daß $v\circ\varphi$ eine $K$-\deri\ ist.
+
+Seien $A$ und $B$ nun zusätzlich lokale $K$-Algebren, $\varphi$ ein lokaler $K$-Algebren\-ho\-momorphismus und seien $\m_A$ und $\m_B$ die entsprechenden maximalen Ideale. Es gelte $A/\m_A\cong K\cong B/\m_B$. $K$ ist über die Quotientenabbildung \mbox{$q_B:B\longrightarrow B/\m_B$} ein $B$-Modul und ist vermöge $\varphi$ ein $A$-Modul. Andererseits ist auf $K$ eine $A$-Modulstruktur über die Quotientenabbildung $q_A:A\longrightarrow A/\m_A$ erklärt. In beiden Fällen erhalten wir dieselbe $A$-Modulstruktur. Um das einzusehen, ist $q_A=q_B\circ\varphi$ zu zeigen (Gleichheit bezieht sich auf die kanonische Identifikation über die $K$-Algebrenisomorphismen). Sei $a\in A$, dann können wir $a$ nach Lemma \ref{disk_supertrick} als Summe aus $a_1\in K$ und $a_2\in\m_A$ schreiben. Es gilt $\varphi(\m_A)\subset\m_B$, also $q_B\circ\varphi(a_2)=0=q_A(a_2)$. $\varphi$ ist ein $K$-Algebrenhomomorphismus, also gilt auch $q_B\circ\varphi(a_1)=q_A(a_1)$. Daraus folgern wir, daß für $v\in\Der(B,K)$ die zurückgezogene \deri\ $v\circ\varphi$ in $\Der(A,K)$ liegt. Wir können nun eine Abbildung
+\begin{eqnarray*}
+\Der(B,K)&\longrightarrow&\Der(A,K)\\
+v&\longmapsto&v\circ\varphi
+\end{eqnarray*}
+definieren, diese Abbildung nennen wir \textbf{Tangentialabbildung}.
+\bigskip\\
+Seien $X$ und $Y$ $C$-\var en und sei $f:X\longrightarrow Y$ ein Morphismus von $C$-\var en. Sei $x\in X$ ein abgeschlossener Punkt, dann induziert $f$ über die Strukturgarben einen lokalen $C$-Algebrenhomomorphismus
+$$\varphi:\O_{Y,f(x)}\longrightarrow\O_{X,x}$$
+Sei $\m_x$ das maximale Ideal von $\O_{X,x}$ und $\m_{f(x)}$ das maximale Ideal von $\O_{Y,f(x)}$. Es gilt $\varphi(\m_{f(x)})\subset\m_x$, daraus folgt $\varphi(\m_{f(x)}^2)\subset\m_x^2$, also wird in natürlicher Weise eine $C$-lineare Abbildung
+\[\widetilde\varphi:\m_{f(x)}/\m_{f(x)}^2\longrightarrow\m_x/\m_x^2\]
+durch $\varphi$ induziert. $\widetilde\varphi$ heißt dann die \textbf{Cotangentialabbildung} von $f$ in $x$.
+\begin{bem}
+\label{tandemabbdef}
+Die $C$-lineare Abbildung zwischen den Tangentialräumen
+\begin{eqnarray*}
+\Der_C(\O_{X,x},C)&\longrightarrow&\Der_C(\O_{Y,f(x)},C)\\
+v&\longmapsto&v\circ\varphi
+\end{eqnarray*}
+ist die duale Abbildung zu $\widetilde\varphi$.
+\end{bem}
+Diese Abbildung heißt \textbf{Tangentialabbildung} von $f$ in $x$.\\
+\bew
+Sei $v\in\Der_C(\O_{X,x},C)$, dann erhalten wir eine Linearform $v':\m_x/\m_x^2\longrightarrow C$ (siehe Beweis von Satz \ref{dualcotandemisttandem}). \zz $v'\circ\widetilde\varphi=(v\circ\varphi)'$. Sei $\overline\mu\in\m_{f(x)}/\m_{f(x)}^2$ mit $\mu\in\m_{f(x)}$, dann gilt $v\circ\varphi(\mu)=v'\circ\widetilde\varphi(\overline\mu)$.\sieg
+Der Cotangentialraum läßt sich auch anders beschreiben und zwar mit dem Modul der relativen Differentialformen. Dazu definieren wir die $\O_{X,x}$-lineare Abbildung
+\begin{eqnarray*}
+\delta:\m_x&\longrightarrow&\Omega_{\O_{X,x}/C}\\
+m&\longmapsto&d_{\O_{X,x}/C}(m)
+\end{eqnarray*}
+wobei $\Omega_{\O_{X,x}/C}$ den Modul der relativen Differentialformen von $\O_{X,x}$ über $C$ bezeichne und $d_{\O_{X,x}/C}$ die zugehörige \deri.
+Es gilt $\delta(\m_x^2)\subset\m_x\Omega_{\O_{X,x}/C}$, also können wir eine Abbildung $\widetilde\delta$ definieren:
+%Q Ha S.174 Prop 8.7
+\begin{satz}
+Die $C$-lineare Abbildung
+\begin{eqnarray*}
+\widetilde\delta:\m_x/\m_x^2&\longrightarrow&\Omega_{\O_{X,x}/C}/\m_x\Omega_{\O_{{X,x}/C}}\\
+\overline m&\longmapsto&\overline{d_{\O_{X,x}/C}(m)}
+\end{eqnarray*}
+ist ein Isomorphismus.
+\end{satz}
+\bew
+Wir definieren eine $C$-\deri\ $v:\O_{X,x}\longrightarrow\m_x/\m_x^2$. Sei $a\in\O_{X,x}$, dann können wir $a$ nach Lemma \ref{disk_supertrick} als Summe aus $a_1\in C$ und $a_2\in\m_x$ schreiben. Setze $v(a):=a_2\mod\m_x^2$, dann ist $v$ eine $C$-\deri, denn per Definition gilt Additivität und $v(c)=0$ für $c\in C$. Die Rechnung zum Nachweis der Produktregel ist analog zu der aus dem Beweis von Satz \ref{dualcotandemisttandem}. Zu $v$ \ex\ nun eindeutig ein $w:\Omega_{\O_{{X,x}/C}}\longrightarrow\m_x/\m_x^2$, so daß folgendes Diagramm kommutiert:
+\[
+\xymatrix{
+\O_{X,x}\ar[rrd]_v\ar[rr]^{d_{\O_{X,x}/C}}&&\Omega_{\O_{X,x}/C}\ar@{.>}[d]^w\\
+&&\m_x/\m_x^2
+}
+\]
+$\Omega_{\O_{X,x}/C}$ wird von $\{d_{\O_{X,x}/C}(a)\mid a\in\m_x\}$ erzeugt und es gilt\\ $w(d_{\O_{X,x}/C}(a))=v(a)=a\mod\m^2$. Wir schränken nun von $\O_{X,x}$ auf $\m_x$ ein und betrachten dann erneut alles modulo $\m_x^2$, damit erhalten wir folgende kommutative Diagramme:
+\[
+\xymatrix{
+\m_x\ar[rrd]_v\ar[rr]^{\delta}&&\Omega_{\O_{{X,x}/C}}\ar[d]^w&\m_x/\m_x^2\ar[rrd]_\id\ar[rr]^{\widetilde\delta}&&\Omega_{\O_{{X,x}/C}}/\m_x\Omega_{\O_{{X,x}/C}}\ar[d]^{\widetilde w}\\
+&&\m_x/\m_x^2&&&\m_x/\m_x^2
+}
+\]
+Die Wohldefiniertheit von $\widetilde w$ folgt aus der $\O_{X,x}$-Linearität von $w$ und daraus, daß $\m_x\cdot\m_x/\m_x^2=0$ gilt. Nach dem obigen Diagramm ist $\widetilde w$ ein Linksinverses von $\widetilde\delta$. Man sieht leicht, daß $\widetilde\delta\circ\widetilde w$ auf den Erzeugenden die Identität ist, damit ist $\widetilde w$ ebenfalls ein Rechtsinverses.\sieg
+Vermöge $\varphi$ ist $\Omega_{\O_{X,x}/C}$ ein $\O_{Y,f(x)}$-Modul und $v:=d_{\O_{X,x}/C}\circ\varphi$ ist eine $C$-\deri\ auf $\O_{Y,f(x)}$. Es \ex\ eindeutig ein $\psi:\Omega_{\O_{Y,f(x)}/C}\longrightarrow\Omega_{\O_{X,x}/C}$, so daß folgendes Diagramm kommutiert.
+\[
+\xymatrix{
+\O_{Y,f(x)}\ar[rrd]_v\ar[rr]^{d_{\O_{Y,f(x)}/C}}&&\Omega_{\O_{{Y,f(x)}/C}}\ar@{.>}[d]^\psi\\
+&&\Omega_{\O_{{X,x}/C}}
+}
+\]
+Auf den Erzeugenden $\{d_{\O_{Y,f(x)}/C}(a)\mid a\in\O_{Y,f(x)}\}$ von $\Omega_{\O_{{Y,f(x)}/C}}$ gilt nun \[d_{\O_{Y,f(x)}/C}(a)\stackrel{\psi}{\longmapsto}d_{\O_{X,x}/C}(\varphi(a))\]
+Es gilt $\psi(\m_{f(x)}\Omega_{\O_{{Y,f(x)}/C}})\subset\m_x\Omega_{\O_{{X,x}/C}}$, denn sei $mv\in\m_{f(x)}\Omega_{\O_{{Y,f(x)}/C}}$ mit $m\in\m_{f(x)}$ und $v\in\Omega_{\O_{{Y,f(x)}/C}}$, dann gilt $\psi(mv)=\varphi(m)\psi(v)\in\m_x\Omega_{\O_{{X,x}/C}}$, da $\varphi$ ein lokaler \rhom\ ist. Wir können nun eine Abbildung \[\widetilde\psi:\Omega_{\O_{Y,f(x)}/C}/\m_{f(x)}\Omega_{\O_{{Y,f(x)}/C}}\longrightarrow\Omega_{\O_{X,x}/C}/\m_x\Omega_{\O_{{X,x}/C}}\] in naheliegender Weise definieren. Mit dem so definierten $\widetilde\psi$ kommutiert das folgende Diagramm.
+\[
+\xymatrix{
+\m_{f(x)}/\m_{f(x)}^2\ar[rr]^{\widetilde\varphi}\ar[d]_{\widetilde\delta}&&\m_x/\m_x^2\ar[d]^{\widetilde\delta}\\
+\Omega_{\O_{Y,f(x)}/C}/\m_{f(x)}\Omega_{\O_{{Y,f(x)}/C}}\ar[rr]^{\widetilde\psi}&&\Omega_{\O_{X,x}/C}/\m_x\Omega_{\O_{{X,x}/C}}
+}
+\]
+Daher wissen wir nun, daß $\widetilde\varphi$ den gleichen Rang wie $\widetilde\psi$ hat. Seien $X$ und $Y$ Kurven, dann ist $\widetilde\varphi$ genau dann die Nullabbildung, wenn $\widetilde\psi$ die Nullabbildung ist. Das ist wiederum äquivalent dazu, daß die Tangentialabbildung im Punkt $x$ die Nullabbildung ist.
+\subsection{Kritische Punkte}
+\begin{df}
+\label{kritpktdef}
+Sei $f:X\longrightarrow Y$ ein Morphismus zwischen Kurven über $C$, und sei $x\in X$ ein abgeschlossener Punkt. Dann heißt $x$ \textbf{kritischer Punkt} von $f$ und $f(x)$ kritischer Wert von $f$, falls eine der folgenden äquivalenten Bedingungen erfüllt ist:
+\begin{enumerate}
+\item die Tangentialabbildung $\Der_C(\O_{X,x},C)\longrightarrow\Der_C(\O_{Y,f(x)},C)$ aus Satz \ref{tandemabbdef} ist die Nullabbildung
+\item Cotangentialabbildung $\widetilde\varphi$ ist die Nullabbildung
+\item Cotangentialabbildung auf Differentialformen $\widetilde\psi$ ist die Nullabbildung
+\end{enumerate}
+\end{df}
+Wir bezeichen die Menge aller kritischen Punkte von $f$ mit $\crit(f)$.
+\begin{bem}
+\label{isokeinkrit}
+Ein Isomorphismus zwischen Kurven über $C$ hat keine kritischen Punkte.
+\end{bem}
+\bew
+Ein Isomorphismus zwischen lokal geringten Räumen induziert in jedem Punkt einen Isomorphismus zwischen den lokalen Ringen.\sieg
+Für den Beweis von Satz \ref{mats_exakte_seq} benötigen wir eine bekannte Tatsache:
+%Q Bourbaki Algebra S.227 Thm 1
+\begin{satz}
+\label{bourhomolog}
+Sei $R$ ein Ring, und seien $U,V,W$ $R$-Moduln. Dann ist die Sequenz von $R$-Moduln
+\[
+U\longrightarrow V\longrightarrow W\longrightarrow 0
+\]
+genau dann exakt, falls für alle $R$-Moduln $M$ die induzierte Sequenz
+\[
+0\longrightarrow\hom_R(W,M)\longrightarrow\hom_R(V,M)\longrightarrow\hom_R(U,M)
+\]
+exakt ist.
+\end{satz}
+Beweis: Theorem 1 auf S.227 in \cite{bour}\bigskip
+\begin{lem}
+\label{diff_diskret_modul}
+Sei $A$ ein lokaler Ring mit maximalem Ideal $\m$, und sei $M$ ein $A$-Modul, der von einem Element erzeugt wird. Ist $x\in M\setminus\m M$, dann erzeugt $x$ den Modul $M$.
+\end{lem}
+\bew
+Sei $y\in M$ ein Erzeugendes von $M$, dann \ex\ $a\in A$ mit $x=ay$. Aus $x\not\in\m M$ folgt $a\not\in\m$, also ist $a$ invertierbar. Nun gilt $y=a^{-1}x$ und damit ist $x$ ein Erzeugendes von $M$.\sieg
+%Q Ha S.173 Prop 8.3A
+%Q Ma Thm 57 S.186
+\begin{satz}
+\label{mats_exakte_seq}
+Seien $A\stackrel{f}{\longrightarrow}B\stackrel{g}{\longrightarrow}C$ Ringhomomorphismen, dann gibt es in natürlicher Weise eine exakte Sequenz von $C$-Moduln.
+\[
+\Omega_{B/A}\otimes_B C\stackrel{v}{\longrightarrow}\Omega_{C/A}\stackrel{u}{\longrightarrow}\Omega_{C/B}\longrightarrow 0
+\]
+mit $v(d_{B/A}(b)\otimes 1)=d_{C/A}(b)$ und $u(d_{C/A}(c))=d_{C/B}(c)$.
+\end{satz}
+\bew
+Gemäß Satz \ref{bourhomolog} zeigen wir, daß die exakte Sequenz von $C$-Moduln
+\[
+0\longrightarrow\hom_C(\Omega_{C/B},M)\stackrel{u^*}{\longrightarrow}\hom_C(\Omega_{C/A},M)\stackrel{v^*}{\longrightarrow}\hom_C(\Omega_{B/A}\otimes_B C,M)
+\]
+für alle $C$-Moduln $M$ exakt ist.
+
+Die $B$-\deri\ $d_{C/B}:C\longrightarrow\Omega_{C/B}$ ist auch eine $A$-\deri, also \ex\ eindeutig ein $C$-lineares $u:\Omega_{C/A}\longrightarrow\Omega_{C/B}$, so daß $u\circ d_{C/A}=d_{C/B}$ gilt, d.h. $u(d_{C/A}(c))=d_{C/B}(c)$ für alle $c\in C$.
+\[\xymatrix{
+C\ar[rr]^{d_{C/A}}\ar[d]_{d_{C/B}}&&\Omega_{C/A}\ar@{.>}[lld]^u\\
+\Omega_{C/B}
+}\]
+Sei nun $M$ ein $C$-Modul. Sei $x\in\hom(\Omega_{C/B},M)$, dann erhalten wir eine $B$-\deri\ $x\circ d_{C/B}\in\Der_B(C,M)$. Aus der Definition des Moduls der relativen Differentialformen folgt, daß diese Zuordnung ein Isomorphismus ist, also gilt \[\Der_B(C,M)\cong\hom(\Omega_{C/B},M)\]
+Analog gilt
+\[\Der_A(C,M)\cong\hom(\Omega_{C/A},M)\]
+
+Sei $x\in\hom(\Omega_{C/B},M)$, dann gilt $x\circ d_{C/B}=x\circ(u\circ d_{C/A})=u^*(x)\circ d_{C/A}$. Die durch $x$ gegebene $B$-\deri\ stimmt mit der durch $u^*(x)$ gegebenen $A$-\deri\ überein, also entspricht $u^*$ der Inklusionsabbildung\\ $\Der_B(C,M)\hookrightarrow\Der_A(C,M)$.
+
+Die $A$-\deri\ $d_{C/A}:C\longrightarrow\Omega_{C/A}$ gibt uns eine $A$-\deri\\ $B\stackrel{g}{\longrightarrow}C\stackrel{d_{C/A}}{\longrightarrow}\Omega_{C/A}$. Es \ex\ eindeutig ein $B$-lineares $\widetilde v$, so daß \\$\widetilde v\circ d_{B/A}=d_{C/A}\circ g$ gilt, d.h. $\widetilde v(d_{B/A}(b))=d_{C/A}(b)$ für alle $b\in B$.
+\[\xymatrix{
+B\ar[rr]^{d_{B/A}}\ar[d]_g&&\Omega_{B/A}\ar@{.>}[d]^{\widetilde v}\\
+C\ar[rr]^{d_{C/A}}&&\Omega_{C/A}
+}\]
+Nun machen wir den $B$-Modul $\Omega_{B/A}$ über das Tensorprodukt zu einem $C$-Modul. Sei $i:\Omega_{B/A}\longrightarrow\Omega_{B/A}\otimes_B C$ die kanonische ``Inklusion'', dann \ex\ eindeutig ein $C$-lineares $v:\Omega_{B/A}\otimes_B C\longrightarrow\Omega_{C/A}$, so daß $v\circ i=\widetilde v$ gilt.
+\[\xymatrix{
+\Omega_{B/A}\ar[rr]^i\ar[d]^{\widetilde v}&&\Omega_{B/A}\otimes_B C\ar@{.>}[lld]^v\\
+\Omega_{C/A}
+}\]
+Für $v$ gilt dann $v(d_{B/A}(b)\otimes 1)=d_{C/A}(b)$ für alle $b\in B$.
+
+Sei $x\in\hom_C(\Omega_{B/A}\otimes_B C,M)$, dann gilt $x\circ i\in\hom_B(\Omega_{B/A},M)$. Diese Zuordnung ist ein Isomorphismus. Wir ordnen nun $x\in\hom_C(\Omega_{B/A}\otimes_B C,M)$ eine $A$-\deri\ auf $B$ wie folgt zu: $x\circ i\circ d_{B/A}$.
+
+Sei $x\in\hom_C(\Omega_{C/A},M)$, dann erhalten wir eine $A$-\deri\\ $x\circ d_{C/A}\in\Der_A(C,M)$. Wir schränken diese \deri\ auf $B$ ein, dann gilt $x\circ (d_{C/A}\circ g)=x\circ(\widetilde v\circ d_{B/A})=x\circ(v\circ i\circ d_{B/A})=v^*(x)\circ i\circ d_{B/A}$. Wir sehen nun, daß $v^*$ der Einschränkung $\Der_A(C,M)\longrightarrow\Der_A(B,M)$ entspricht.
+
+Man sieht sehr leicht, daß
+\[
+0\longrightarrow\Der_B(C,M)\longrightarrow\Der_A(C,M)\longrightarrow\Der_A(B,M)
+\]
+exakt ist.\sieg
+\begin{satz}
+\label{diff_supp_lokal}
+Sei $f:X\longrightarrow Y$ ein Morphismus zwischen Kurven, und sei $x\in X$ ein abgeschlossener Punkt. $x$ ist genau dann ein kritischer Punkt von $f$, wenn $\Omega_{\O_{X,x}/\O_{Y,f(x)}}\not=0$ gilt.
+\end{satz}
+\bew
+Wie haben die Ringhomomorphismen $C\longrightarrow\O_{Y,f(x)}\stackrel{\varphi}{\longrightarrow}\O_{X,x}$. Nach Satz \ref{mats_exakte_seq} erhalten wir folgende exakte Sequenz von $\O_{X,x}$-Moduln:
+\[\Omega_{\O_{Y,f(x)}/C}\otimes_{\O_{Y,f(x)}}\O_{X,x}\stackrel{v}{\longrightarrow}\Omega_{\O_{X,x}/C}\stackrel{u}{\longrightarrow}\Omega_{\O_{X,x}/\O_{Y,f(x)}}\longrightarrow 0\] wobei $v(d_{\O_{X,x}/C}(f)\otimes a)=d_{\O_{Y,f(x)/C}}\circ\varphi(f)\cdot a$ gilt.
+
+$x$ ist kein kritischer Punkt von $f$ ist äquivalent dazu, daß $\widetilde\psi$ (siehe Definition \ref{kritpktdef}) nicht die Nullabbildung ist. Das wiederum ist äquivalent dazu, daß ein $m$ aus $\Omega_{\O_{X,x}/C}\setminus\m_x\Omega_{\O_{{X,x}/C}}$ unter $\widetilde\psi$ getroffen wird. Nach Lemma \ref{diff_diskret_modul} ist $m$ ein Erzeugendes von $\Omega_{\O_{X,x}/C}$ und damit wäre $v$ surjektiv. Wegen der Exaktheit ist $v$ genau dann surjektiv, wenn $u$ die Nullabbildung ist, und das ist äquivalent zu $\Omega_{\O_{X,x}/\O_{Y,f(x)}}=0$.\sieg
+\subsection{Garben von Differentialformen}
+%Q Ha S.67 Ex 1.14
+\begin{df}
+Sei $\cal F$ eine Garbe (von Gruppen, Ringen, Moduln) auf einem topologischen Raum $X$, dann heißt
+\[
+\supp{\cal F}:=\{P\in X\mid{\cal F}_P\not=0\}
+\]
+der \textbf{Träger} von $\cal F$.
+
+Sei $U\subset X$ eine offene Teilmenge und $s\in{\cal F}(U)$, dann heißt
+\[
+\supp s:=\{P\in U\mid s_P\not=0\}
+\]
+der Träger von $s$.
+\end{df}
+Wir wissen, daß wir zu einem gegebenen Ring $A$ einen topologischen Raum $\Spec A$ mit einer Garbe von Ringen $\O$ konstruieren können. Sei nun $M$ ein $A$-Modul, dann können wir eine Garbe $\widetilde M$ von $\O_X$-Moduln, d.h. für $U\subset X$ offen ist $\widetilde M(U)$ ein $\O_X(U)$-Modul, auf $\Spec A$ in analoger Weise konstruieren, so daß für einen Punkt $\p\in\Spec A$ der Halm von $\widetilde M$ im Punkt $\p$ isomorph zu $M_\p$ ist und für eine offene Basismenge $D(f)\subset\Spec A$ der Modul $\widetilde M(D(f))$ isomorph zu $M_f$ ist. Mit den folgenden zwei Lemmata werden wir sehen, daß der Träger einer solchen Garbe abgeschlossen in $\Spec A$ ist.
+%Q Ha S.124 5.6a
+\begin{lem}
+\label{suppabgeschl}
+Sei $A$ ein Ring und $M$ ein $A$-Modul. Sei $m\in M$ und $\ann m$ das Ideal $\{a\in A\mid am=0\}$, dann gilt
+\[
+\supp m=V(\ann m)
+\]
+\end{lem}
+\bew
+Sei $\p\in\supp  m$, d.h. das Bild von $m$ in $M_\p$ ist ungleich $0$. Nach der Definition der Lokalisierung von Moduln ist $\frac m1\in M_\p$ genau dann ungleich $\frac 01$, wenn für alle $h\in A$ stets $h\not\in\p\Longrightarrow hm\not=0$ gilt. Das ist äquivalent zu $hm=0\Longrightarrow h\in\p$ für alle $h\in A$, und das ist eine andere Schreibweise für $\ann m\subset\p$. Also gilt $\p\in V(\ann m)$.
+\sieg
+%Q Ha S.124 5.6b
+\begin{lem}
+\label{suppabgeschl2}
+Sei $A$ ein Ring und $M$ ein endlich erzeugter $A$-Modul. Sei $\ann M$ das Ideal $\{a\in A\mid am=0\emph{ für alle }m\in M\}$, dann gilt
+\[
+\supp\widetilde M=V(\ann M)
+\]
+\end{lem}
+\bew
+Seien $m_1,\dots,m_n$ die Erzeugenden von $M$. Es gilt
+\begin{enumerate}
+\item $\ann M=\bigcap\limits_{i=1}^n\ann(m_i)$
+\item $\bigcup\limits_{i=1}^n\supp(m_i)=\supp\widetilde M$
+\end{enumerate}
+\begin{description}
+\item[Zu. 1]\ \\
+``$\subset$'' ist klar, es bleibt ``$\supset$'' zu zeigen. Sei $a\in\bigcap\ann(m_i)$ und  $m\in M$, dann hat $m$ eine Darstellung $m=\sum\lambda_i m_i$. Es gilt $a\cdot m=\sum\lambda_i a\cdot m_i=0$. Damit ist $a\in\ann M$ gezeigt.
+\item[Zu. 2]\ \\
+``$\subset$'' ist klar, es bleibt ``$\supset$'' zu zeigen. Sei $\p\in\supp\widetilde M$, dann \ex\ ein $x\in M$, dessen Bild in $M_\p$ ungleich Null ist. Wir können $x$ als $x=\sum\lambda_i m_i$ schreiben. Für ein $i$ ist das Bild von $m_i$ in $M_\p$ ungleich Null, damit liegt $\p$ im Träger von $m_i$. Also gilt $\p\in\bigcup\supp m_i$.
+\end{description}
+Es gilt
+\[V(\ann M)=V(\bigcap\limits_{i=1}^n\ann m_i)=\bigcup\limits_{i=1}^n V(\ann m_i)=\bigcup\limits_{i=1}^n\supp m_i=\supp\widetilde M\]
+Die vorletzte Gleichheit folgt aus Lemma \ref{suppabgeschl}.\sieg
+\begin{fol}
+\label{suppabgeschl3}
+Sei $A$ ein Ring und $M$ ein endlich erzeugter $A$-Modul. Dann ist der Träger von $\widetilde M$ abgeschlossen in $\Spec A$.
+\end{fol}
+%Q Ha S.111
+\begin{df}
+Sei $X$ ein Schema und $\cal F$ eine Garbe von $\O_X$-Moduln auf $X$, d.h. für $U\subset X$ offen ist ${\cal F}(U)$ ein $\O_X(U)$-Modul. Die Garbe $\cal F$ heißt \textbf{kohärent}, falls $X$ eine offene affine Überdeckung $(\Spec A_i)_{i\in I}$ hat, so daß zu jedem $i\in I$ ein endlich erzeugter $A_i$-Modul $M_i$ \ex, so daß ${\cal F}(\Spec A_i)\cong\widetilde M_i$ gilt.
+\end{df}
+Der Träger einer kohärenten Garbe ist nach Folgerung \ref{suppabgeschl3} stets abgeschlossen, da Abgeschlossenheit eine lokale Eigenschaft ist.
+%Q Ha S.173 Prop 8.2A
+%Q Ma S.186 Ex
+\begin{satz}
+\label{diff_supp_hilfe}
+Seien $A'$ und $B$ $A$-Algebren, und sei $B'=B\otimes_A A'$. Dann gilt
+\[\Omega_{B'/A'}\cong\Omega_{B/A}\otimes_B B'\]
+Insbesondere gilt für eine multiplikativ abgeschlossene Teilmenge $S\subset B$
+\[\Omega_{S^{-1}B/A}\cong S^{-1}\Omega_{B/A}\]
+\end{satz}
+ohne Beweis
+\begin{lem}
+\label{konstfield}
+Seien $A$ und $B$ Integritätsringe, $f:A\longrightarrow B$ ein \rhom\ und $S\subset B$ eine multiplikativ abgeschlossene Teilmenge. Setze \mbox{$T:=f^{-1}(S)$}, dann gilt
+\[
+\Omega_{B_S/A}\cong\Omega_{B_S/A_T}
+\]
+\end{lem}
+\bew
+Jede $A_T$-\deri\ auf $B_S$ ist insbesondere eine $A$-\deri. Umgekehrt ist auch jede $A$-\deri\ auf $B_S$ eine $A_T$-\deri, denn sei $v:B_S\longrightarrow M$ eine $A$-\deri\ in einen $B_S$-Modul $M$, und sei $\frac at\in A_T$, d.h. $a\in A$ und $t\in T\subset A$. Es gilt
+\[0=\frac 1t\cdot v(1)=\frac 1t\cdot v\left(\frac 1 t\cdot t\right)=\frac 1t\left(\frac 1t\cdot v(t)+tv\left(\frac 1 t\right)\right)=v\left(\frac 1 t\right)\]
+Aus der Produktregel folgt $v\left(\frac at\right)=0$. Damit ist gezeigt, daß $v$ auch eine $A_T$-\deri\ ist.
+
+Wir wissen nun, daß $d_{B_S/A}$ und $d_{B_S/A_T}$ beide universelle $A_T$-\deri en sind. Aus der universellen Eigenschaft folgt damit die Isomorphie.\sieg
+Sei $f:X\longrightarrow Y$ ein endlicher Morphismus zwischen Kurven. Sei $V\cong\Spec A$ eine affine Teilmenge von $Y$, dann ist $U:=f^{-1}(V)$ affin, d.h. $U\cong\Spec B$. Wir erhalten dann eine Garbe $(\Omega_{B/A})^\sim$ von $\O_U$-Moduln auf dem affinen Unterschema $U$.
+
+Nun können wir die Garbe $\Omega_{X/Y}$ von $\O_X$-Moduln auf $X$ definieren, indem wir $X$ und $Y$ affin überdecken und die zugehörigen Garben $(\Omega_{B/A})^\sim$ zusammenkleben. $\Omega_{X/Y}$ ist insbesondere eine kohärente Garbe.
+\begin{lem}
+\label{suppkeinnull}
+Seien $A$ und $B$ $K$-Algebren, und sei $f:A\longrightarrow B$ ein modulendlicher $K$-Algebren\homo. Dann ist $B$ vermöge $f$ eine $A$-Algebra und es gilt $(\Omega_{B/A})_{(0)}=0$.
+\end{lem}
+\bew
+$\Omega_{B/A}$ wird von $\{d_{B/A}(b)\mid b\in B\}$ erzeugt, wir zeigen daß jedes dieser Erzeugenden ein Torsionselement ist, d.h. zu $b\in B$ \ex\ ein $0\not=c\in B$, so daß $c\cdot d_{B/A}(b)=0$ gilt. Wenn das gezeigt ist, folgt die Behauptung, denn es gilt $(\Omega_{B/A})_{(0)}\cong B_{(0)}\otimes_B\Omega_{B/A}$ nach Lemma \ref{diff_supp_hilfe} mit $S:=B\setminus\{0\}$ und Lemma \ref{konstfield}. Für $1\otimes d_{B/A}(b)$ mit $b\in B$ gilt
+\[1\otimes d_{B/A}(b)=\left(\frac 1c\cdot c\right)\otimes d_{B/A}(b)=\frac 1 c\otimes cd_{B/A}(b)=\frac 1 c\otimes 0=0\]
+Es bleibt noch zu zeigen, daß $d_{B/A}(b)$ mit $b\in B$ ein Torsionselement ist. Jede modulendliche Ringerweiterung ist eine ganze Ringerweiterung. Sei nun $b\in B$, dann erfüllt $b$ eine Ganzheitsgleichung über $A$, d.h. $\sum\limits_{i=0}^na_ib^i=0$ mit $a_i\in A$ und $a_n=1$. Wir nehmen an, daß die Ganzheitsgleichung so gewählt ist, daß $n$ minimal ist. Man sieht leicht, daß $d_{B/A}(b^n)=nb^{n-1}d_{B/A}(b)$ gilt. Bei uns haben alle Körper Charakteristik $0$, also hat $n$ ein Inverses in $B$.
+\[0=\frac 1nd_{B/A}\left(\sum\limits_{i=0}^na_ib^i\right)=\frac 1n\sum\limits_{i=1}^na_iib^{i-1}d_{B/A}(b)=\left(\sum\limits_{i=0}^{n-1}a_{i+1}\frac{i+1}nb^i\right)d_{B/A}(b)\]
+Aus der Minimalität von $n$ und aus $a_n=1$ folgt $c:=\sum\limits_{i=0}^{n-1}a_{i+1}\frac{i+1}nb^i\not=0$. Damit ist gezeigt, daß $d_{B/A}(b)$ ein Torsionselement ist.\sieg
+\begin{fol}
+\label{diffcritabg}
+Seien $X=\Spec B$ und $Y=\Spec A$ affine Kurven über $C$, und sei $f:X\longrightarrow Y$ ein endlicher Morphismus. $f$ wird von einem $C$-Algebrenhomomorphismus $A\longrightarrow B$ induziert und es gilt \[\crit(f)=\supp\Omega_{B/A}\]
+\end{fol}
+Insbesondere ist $\crit(f)$ abgeschlossen in $\Spec B$.\medskip\\
+\bew
+Nach Lemma \ref{suppkeinnull} gilt $(0)\not\in\supp\Omega_{B/A}$. Nun betrachten wir die abgeschlossenen Punkte.
+
+Sei $\m_B$ ein maximales Ideal in $B$, und sei $\m_A\subset A$ das Bild von $\m_B$ unter $f$. $B$ ist in natürlicher Weise eine $A$-Algebra und es gilt nach Satz \ref{diff_supp_hilfe} mit $S:=B\setminus\m_B$ \[(\Omega_{B/A})_{\m_B}\cong\Omega_{B_{\m_B}/A}\]
+$B_{\m_B}$ ist eine $A_{\m_A}$-Algebra vermöge dem induzierten lokalen \rhom. Nach Lemma \ref{konstfield} gilt
+\[
+\Omega_{B_{\m_B}/A}\cong\Omega_{B_{\m_B}/A_{\m_A}}
+\]
+insgesamt erhalten wir dann
+\[
+(\Omega_{B/A})_{\m_B}\cong\Omega_{B_{\m_B}/A_{\m_A}}
+\]
+Aus Satz \ref{diff_supp_lokal} folgt damit die Behauptung.\sieg
+\begin{fol}
+\label{endlkritendl}
+Sei $f:X\longrightarrow Y$ ein endlicher Morphismus zwischen Kurven. Dann ist die Menge der kritischen Punkte von $f$ abgeschlossen und damit endlich.
+\end{fol}
+Denn: Sei $V\subset Y$ affin, dann ist auch $U:=f^{-1}(V)$ affin. Die Menge der kritischen Punkte von $f_{|U}$ ist dann nach Folgerung \ref{diffcritabg} abgeschlossen in $U$. Nun ist Angeschlossenheit eine lokale Eigenschaft, damit ist die Menge der kritischen Punkte von $f$ abgeschlossen.
+
+Der generische Punkt ist kein kritischer Punkt, also ist die Menge der kritischen Punkte von $f$ endlich.\sieg

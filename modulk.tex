@@ -1,0 +1,104 @@
+\section{Modulkörper}
+\label{abschnitt_modulk}
+In diesem Abschnitt wird der Modulkörper eines endlichen Morphismus \\$t:X\longrightarrow\Pc$ definiert. Wir interessieren uns hauptsächlich für den Fall \mbox{$C=\C$}. Das Hauptresultat dieses Abschnitts wird sein, daß der Modulkörper eines Morphismus $t:X\longrightarrow\P1$ ein Zahlkörper ist, falls dessen kritische Werte in $\dreier$ liegen.
+
+Zur Definition des Modulkörpers erinnere ich an die Definition \ref{modulk_dep}.
+\begin{df}
+Sei $X$ eine \var\ über $C$. Setze
+\[
+U(X):=\{\sigma\in\Aut(C)\mid X^\sigma\cong X\}
+\]
+Der Fixkörper $M(X):=C^{U(X)}$ heißt \textbf{absoluter Modulkörper} von $X$.
+\end{df}
+\subsection{Modulkörper eines endlichen Morphismus}
+\begin{df}
+\label{moduli_covering}
+Sei $t:X\longrightarrow\Pc$ ein endlicher Morphismus zwischen Kurven über $C$.
+$U(X,t)\subset\Aut(C)$ besteht aus denjenigen Körperautomorphismen $\sigma$, für die ein Isomorphismus $f_\sigma$ \ex, so daß folgendes Diagramm kommutiert.
+\[\xymatrix{
+X^\sigma\ar[rr]^{f_\sigma}\ar[d]_{t^\sigma}&&X\ar[d]^t\\
+(\Pc)^\sigma\ar[rr]_{\proj(\sigma)}&&\Pc
+}\]
+Der Fixkörper $M(X,t):=C^{U(X,t)}$ heißt \textbf{Modulkörper} von $(X,t)$.
+\end{df}
+Insbesondere gilt $U(X,t)\subset U(X)$.% $f_\sigma$ aus obiger Definition induziert einen Körperautomorphismus $f_\sigma^*:K(X)\longrightarrow K(X)$. Wir erhalten folgendes kommutative Diagramm:
+%\[\xymatrix{
+%K(X)&&K(X)\ar[ll]_{f_\sigma^*}\\
+%C(T)\ar[u]^{t^*}&&C(T)\ar[ll]^\sigma\ar[u]_{t^*}
+%}\]
+%Insbesondere ist $t^*(T)$ invariant unter $f_\sigma^*$.
+\subsection{Modulkörper im Komplexen}
+Sei $X$ eine vollständige Kurve und $f:X\longrightarrow\P1$ ein endlicher Morphismus. $f$ gibt uns eine verzweigte \hol e \cov. Sei $S\subset\P1$ die Menge der kritischen Werte von $f$, dann ist
+\[t_S:X\setminus t^{-1}(S)\longrightarrow\P1\setminus S\]
+wobei $t_S$ die naheliegende Einschränkung von $t$ sei, eine \hol e \cov. Der Grad der \cov\ $t_S$ stimmt mit dem Grad des endlichen Morphismus $t$ überein.
+%Q Köck Prop 3.1
+%Q FO S.23 - für biholomorph
+\begin{lem}
+\label{isoklasseninj}
+Seien $t_1:X_1\longrightarrow\P1$ und $t_2:X_2\longrightarrow\P1$ endliche Morphismen zwischen vollständigen Kurven, und sei $S\subset\P1$ eine endliche Teilmenge, so daß die kritischen Werte von $t_1$ und $t_2$ in $S$ enthalten sind. Dann sind $t_1$ und $t_2$ genau dann isomorph, wenn die zugeordneten \hol en \cov en $t_{1S}$ und $t_{2S}$ homöomorph sind.
+\end{lem}
+\bew
+Der Übergang vom algebraischen zum analytischen ist funktoriell, also folgt aus $t_1$ isomorph zu $t_2$, daß $t_{1S}$ und $t_{2S}$ homöomorph sind.
+
+Sei nun umgekehrt $t_{1S}$ homöomorph zu $t_{2S}$, d.h. es \ex\ ein \homeo smus $f:X_1\setminus t_1^{-1}(S)\longrightarrow X_2\setminus t_2^{-1}(S)$ mit $t_{2S}\circ f=t_{1S}$. Nun sind $t_{1S}$ und $t_{2S}$ als \cov en lokal bi\hol e Abbildungen. Daraus folgt, daß auch $f$ lokal bi\hol\ ist, denn sei $x\in X_1\setminus t_1^{-1}(S)$, dann hat $y:=t_{1S}(x)\in\P1\setminus S$ gemäß Definition \ref{defcov} Umgebungen $U_1$, $U_2$, so daß $x$ eine Umgebung $V_1$ und $f(x)$ eine Umgebung $V_2$ hat mit $t_{1S|V_1}:V_1\longrightarrow U_1$ und $t_{2S|V_2}:V_2\longrightarrow U_2$ bi\hol. Wir können annehmen, daß $U:=U_1=U_2$ gilt, da wir ansonsten kleinere Umgebungen wählen können. 
+\[\xymatrix{
+V_1\ar[rr]^{f_{|V_1}}\ar[rd]_{t_{1S|V_1}}&&V2\ar[ld]^{t_{2S|V_2}}\\
+&U
+}\]
+%Q GRIFFITHS
+Nun gilt $t_{2S|V_2}\circ f_{|V_1}=t_{1S|V_1}$, daraus folgt $f_{|V_1}=t_{1S|V_1}\circ t_{2S|V_2}^{-1}$. $f$ ist lokal bi\hol\ und ein \homeo smus, also ist $f$ bi\hol. Nach Theorem \ref{forstercovermaster} \ex\ eine Fortsetzung $\widetilde f:X_1\longrightarrow X_2$ von $f$, die faser-erhaltend, d.h. \mbox{$t_2\circ\widetilde f=t_1$}, und bi\hol\ ist. Jede \hol e Abbildung zwischen vollständigen Kurven ist algebraisch, also ist $\widetilde f$ der gesuchte Isomorphismus.\sieg
+\begin{lem}
+\label{endlvieleisos}
+Sei $S\subset\P1$ eine endliche Teilmenge von abgeschlossenen Punkten und sei $d\geq 1$ eine natürliche Zahl. Dann existieren nur endlich viele Isomorphieklassen von Paaren $(X,t)$, wobei $X$ eine vollständige Kurve und $t:X\longrightarrow\P1$ ein endlicher Morphismus vom Grad $d$, dessen kritische Werte in $S$ liegen, ist.
+\end{lem}
+\bew
+Sei $t:X\longrightarrow\P1$ ein endlicher Morphismus, dessen kritische Werte in $S$ liegen, dann erhalten wir eine \hol e \cov\ \mbox{$t_S:X\setminus t^{-1}(S)\longrightarrow\P1\setminus S$}. Wir ordnen nun jeder Isomorphieklasse $(X,t)$ die \homeo eklasse \\\mbox{$(X\setminus t^{-1}(S),t_S)$} zu. Diese Zuordnung ist nach Lemma \ref{isoklasseninj} injektiv.
+
+Nun ist zu zeigen, daß es nur endlich viele \homeo eklassen von \cov en von $\P1\setminus S$ vom Grad $d$ gibt. Sei $p:\widetilde S\longrightarrow\P1\setminus S$ eine universelle \cov\ von $\P1\setminus S$, und sei $t:Y\longrightarrow\P1\setminus S$ eine \cov\ von $\P1\setminus S$, dann ist die \cov\ $\widetilde S/\Aut(t)\longrightarrow\P1\setminus S$ isomorph zu $t:Y\longrightarrow\P1\setminus S$. Nach Satz \ref{covquotientenmaster} stimmt der Grad der \cov\ $t$ mit dem Index von $\Aut(t)$ in $\Aut(p)$ überein. Wir interessieren uns nun für \cov en vom Grad $d$, von denen es höchstens so viele \homeo eklassen gibt, wie $\Aut(p)$ Untergruppen vom Index $d$ hat.
+
+%Nun ist zu zeigen, daß $\Aut(p)$ nur endlich viele Untergruppen vom Index $d$ hat.
+Nach Theorem \ref{covdeckfund} ist die Fundamentalgruppe $\pi_1(\P1\setminus S)$ von $\P1\setminus S$ isomorph zu $\Aut(p)$. $\pi_1(\P1\setminus S)$ ist eine endlich erzeugte freie Gruppe\footnote{siehe Aufgabe 5.7.A2 in \cite{Zieschang}} vom Rang $\#S-1$, nach Satz \ref{hall_freie_gruppe} hat diese nur endlich viele Untergruppen vom Index $d$.\sieg
+%Q Köck Cor 3.2
+\begin{lem}
+\label{koeck32}
+Sei $X$ eine vollständige Kurve über $\C$, $t:X\longrightarrow\P1$ ein endlicher Morphismus und $K$ ein Unterkörper von $\C$, so daß alle kritischen Werte von $t$ $K$-rational sind. Dann ist die \KE\ $M(X,t):K$ endlich algebraisch.
+\end{lem}
+\bew
+Sei $\sigma\in\Aut(\C:K)$, dann erhalten wir einen endlichen Morphismus
+\[
+t(\sigma):=\proj(\sigma)\circ t^\sigma
+\]
+d.h. das folgende Diagramm kommutiert:
+\[\xymatrix{
+X^\sigma\ar[d]_{t^\sigma}\ar[rrd]^{t(\sigma)}\\
+{\P1}^\sigma\ar[rr]_{\proj(\sigma)}&&\P1
+}\]
+$\proj(\sigma)$ hat nach Bemerkung \ref{isokeinkrit} keine kritischen Werte und ist ein endlicher Morphismus vom Grad $1$. Nach Bemerkung \ref{qratinv} sind $K$-rationale Punkte invariant unter $\proj(\sigma)$, also sind die kritischen Werte von $t(\sigma)$ die gleichen wie die von $t$. Sei $d$ der Grad von $t$, dann hat $t(\sigma)$ ebenfalls den Grad $d$. Wir erhalten also eine Gruppenoperation von $\Aut(\C:K)$ auf den Isomorphieklassen.
+
+$t$ hat nach Folgerung \ref{endlkritendl} nur endlich viele kritische Punkte.
+Sei $S$ die Menge der kritischen Werte von $t$, dann existieren nach Lemma \ref{endlvieleisos} nur endlich viele Isomorphieklassen von endlichen Morphismen nach $\P1$ vom Grad $d$, deren kritische Werte in $S$ liegen. Insbesondere ist der Orbit der Isomorphieklasse $(X,t)$ unter der Operation von $\Aut(\C:K)$ endlich. Der Stabilisator von $(X,t)$ hat nach Bemerkung \ref{stabilisatormaster} endlichen Index in $\Aut(\C:K)$. Nun besteht der Stabilisator von $(X,t)$ aus denjenigen $\sigma\in\Aut(\C:K)$, für die ein Isomorphismus $f_\sigma$ \ex, so daß folgendes Diagramm kommutiert:
+\[\xymatrix{
+X^\sigma\ar[rr]^{f_\sigma}\ar[rrd]^{t(\sigma)}&&X\ar[d]^t\\
+&&\P1
+}\]
+Wie man nun leicht sieht, gilt $\stab(X,t)\subset U(X,t)$.\footnote{siehe Definition \ref{moduli_covering}} Insbesondere hat $U(X,t)$ damit endlichen Index in $\Aut(\C:K)$. Nach Satz \ref{lemma_vrf} gilt $\C^{\Aut(\C/K)}=K$, und nach Lemma \ref{indendldegendl} ist die \KE\ $\C^{U(X,t)}:\C^{\Aut(\C/K)}$ endlich algebraisch.\sieg
+Nun kommen wir zu unserem Hauptresultat, das ein Spezialfall von Lemma \ref{koeck32} ist: Inbesondere ist $M(X,t)$ eine endliche Erweiterung von $\Q$, also ein Zahlkörper, falls die kritischen Werte von $t$ in $\dreier$ liegen.
+
+Als nächstes suchen wir eine Abschätzung für den Grad der \KE\ $M(X,t):\Q$. Sei $G$ eine freie Gruppe vom Rang $2$, dann berechnet sich die Anzahl $M_d$ der Untergruppen vom Index $d$ nach Satz \ref{formelhall} mit der folgenden Rekursionsformel:
+\begin{eqnarray*}
+M_1&=&1\\
+M_d&=&d(d!)-\sum\limits_{i=1}^{d-1}(d-i)!M_i
+\end{eqnarray*}
+\begin{bem}
+\label{gradabsch1}
+Sei $X$ eine vollständige Kurve über $\C$, $t:X\longrightarrow\P1$ ein endlicher Morphismus vom Grad $d$, dessen kritische Werte in $\dreier$ liegen. Dann gilt
+\[
+[M(X,t):\Q]\leq M_d
+\]
+\end{bem}
+Der Beweis greift auf Einzelheiten der Beweise von Lemma \ref{endlvieleisos} und Lemma \ref{koeck32} zurück.\smallskip\\
+\bew
+$\pi_1(\P1\setminus\dreier)$ ist eine freie Gruppe vom Rang $2$. Es gibt höchstens so viele \homeo eklassen von \cov en von $\P1\setminus\dreier$ vom Grad $d$, wie $\pi_1(\P1\setminus\dreier)$ Untergruppen vom Index $d$ hat. Insbesondere hat der Orbit von $(X,t)$ unter der Operation von $\Aut(\C:\Q)$ höchstens $M_d$ Elemente. Es gilt $\stab(X,t)=U(X,t)$, wie man leicht sieht, damit ist der Index von $U(X,t)$ in $\Aut(\C:\Q)$ nach Bemerkung \ref{stabilisatormaster} höchstens $M_d$. Nach Lemma \ref{indendldegendl} gilt
+\[[M(X,t):\Q]\leq[\Aut(\C:\Q):U(X,t)]\leq M_d\]
+
+\sieg

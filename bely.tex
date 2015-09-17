@@ -1,0 +1,105 @@
+%\documentclass[a4paper]{article}
+\documentclass{article}
+%\documentclass[a4paper,oneside]{book}
+%\hyphenation{ab-ge-schlos-sen-en}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem{df}[thm]{Definition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{satz}[thm]{Satz}
+\newtheorem{bem}[thm]{Bemerkung}
+\newtheorem{fol}[thm]{Folgerung}
+\def\disj{\mkern+13mu\cdot\mkern-13mu\bigcup}
+\def\C{\mathbbm{C}}
+\def\Q{\mathbbm{Q}}
+\def\Palg{\mathbbm{P}^1}
+\def\P1{\Palg_\C}
+\def\Pc{\Palg_C}
+\def\alg{\Q^{\mathop{\rm alg}}}
+\def\nat{\mathbbm{N}}
+\def\Nat{\mathbbm{N^+}}
+\def\bew{Beweis:\\}
+\def\iv{In\-duktions\-voraussetzung}
+\def\ex{existiert}
+\def\zz{Zu zeigen: }
+\def\impl{\:\Longrightarrow\:}
+%\def\bem{\textbf{Bemerkung}\\}
+\def\gb{gebrochen-linear}
+\def\lu{linear unabh\"angig}
+\def\Tf{Transformation}
+\def\tf{transformier}
+%
+\def\var{Variet\"at}
+\def\KE{K\"orpererweiterung}
+\def\ghom{Gruppen\homo}
+\def\khom{K\"orper\homo}
+\def\rhom{Ring\homo}
+\def\homo{homomorphismus}
+\def\algabg{algebraisch abgeschlossen}
+%\def\deg{\textrm{grad }}
+\def\sieg{\begin{flushright}$\Box$\end{flushright}}
+\def\dreier{\{0,1,\infty\}}
+%
+\def\mod{\mathop{\rm mod}\nolimits}
+\def\Aut{\mathop{\rm Aut}\nolimits}
+\def\Der{\mathop{\rm Der}\nolimits}
+\def\supp{\mathop{\rm supp}\nolimits}
+\def\id{\mathop{\rm id}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\def\Spec{\mathop{\rm Spec}\nolimits}
+\def\hom{\mathop{\rm Hom}\nolimits}
+\def\proj{\mathop{\rm Proj}\nolimits}
+\def\max{\mathop{\rm max}\limits}
+\def\stab{\mathop{\rm Stab}\limits}
+%
+\newenvironment{bsp}{\vspace{3mm}\ \newline\textbf{Beispiele}\begin{enumerate}}{\end{enumerate}}
+\newenvironment{minilemma}{\smallskip\\\em}{\smallskip\\}
+\def\O{{\cal O}}
+\def\p{{\textfrak p}}
+\def\m{{\textfrak m}}
+\usepackage{bbm,amssymb}
+\usepackage[latin1]{inputenc}
+%\usepackage[T1]{fontenc} <- spackt ab
+\usepackage{t1enc}
+\usepackage[all,cmtip]{xy}
+\usepackage{oldgerm} % für Primideale
+\usepackage{german}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+{\Large Diplomarbeit}\\
+\vspace{5mm}
+{\huge\textsc{Satz von Belyi}}\\
+\vspace{5cm}
+im Studiengang Mathematik\\der Universität Bremen\\vorgelegt im\\
+\vspace{6mm}
+{\Large Januar 2008}\\
+\vspace{6mm}
+von\\
+\vspace{6mm}
+{\Large Ralf Donau}
+\end{center}
+\vspace{7cm}
+Gutachter:\\
+Prof. Dr. Jens Gamst\\
+Prof. Dr. Eberhard Oeljeklaus
+\end{titlepage}
+\tableofcontents
+\include{einleitung}
+{\large Konventionen:}
+\begin{itemize}
+\item Alle betrachteten Körper haben Charakteristik 0
+\item Ringe sind kommutativ mit Einselement
+\item Alle Kurven sind glatt
+\end{itemize}
+\newpage
+\include{vars}
+\include{differentiale}
+\include{proj}
+\include{galois}
+\include{belyverf}
+\include{rfcov}
+\include{modulk}
+\include{verzw}
+\include{defk}
+\include{literatur}
+\end{document}

@@ -1,0 +1,160 @@
+\section{Vorbereitungen I}
+Im folgenden ist $C$ ein algebraisch abgeschlossener Körper und alle auftretenden Körper haben Charakteristik 0.
+\subsection{\var en}
+%Q Hartshorne S.82
+\begin{df}
+Ein Schema $X$ heißt integral, falls für jedes offene $U\subset X$ der Ring $\O_{X,U}$ ein Integritätsring ist.
+\end{df}
+\begin{df}
+Eine \var\ über einem Körper $K$ (kurz $K$-\var) ist ein integrales Schema $X$ mit einem Strukturmorphismus $$X\stackrel{\varphi}{\longrightarrow}\Spec K$$ welcher separiert und von endlichem Typ ist.
+\end{df}
+``von endlichem Typ'' bedeutet in diesem Fall, daß $X$ eine offene Überdeckung durch $(\Spec A_i)_{i=1\dots n}$ hat wobei jedes $A_i$ eine endlich erzeugte $K$-Algebra ist.
+Schreibweise: Wenn wir von der \var\ $X\stackrel{\varphi}{\longrightarrow}\Spec K$ sprechen, bezeichnen wir diese kurz mit $X$.
+\begin{bem}
+Sei $\O_X$ die Strukturgarbe von $X$, dann gilt für jede offene affine Teilmenge $U\subset X$:
+\begin{enumerate}
+\item $\O_X(U)$ ist eine endlich erzeugte $K$-Algebra.
+\item Für $V\subset U$ offen ist die Restriktion $\O_X(U)\longrightarrow\O_X(V)$ ein $K$-Algebren\-homo\-morphismus.
+\end{enumerate}
+\end{bem}
+\begin{bsp}
+%Q Hart S.82, S.84, S.96
+\item Affine \var en: Sei $A$ eine endlich erzeugte $K$-Algebra, die ein Integritätsring ist, d.h. $A=K[X_1\cdots X_n]/I$, wobei $I$ ein Primideal in $K[X_1\cdots X_n]$ ist. Dann ist das affine Schema $\Spec A$ zusammen mit dem durch die Inklusion $K\hookrightarrow A$ induzierten Morphismus $\Spec A\longrightarrow\Spec K$ eine $K$-\var.
+
+\item $\Pc$ als projektives Schema zu einem algebraisch abgeschlossenen Körper $C$.
+\end{bsp}
+\begin{df}
+Seien $X$ und $Y$ \var en über einem Körper $K$ mit den Strukturmorphismen $\varphi$ und $\psi$. Ein Morphismus von Schemata $f:X\longrightarrow Y$ heißt \textbf{Morphismus von $K$-\var en}, falls folgendes Diagramm kommutiert:
+$$
+\xymatrix{
+X \ar[rr]^f \ar[rd]_\varphi &&Y\ar[ld]^\psi\\
+&\Spec K}
+$$
+\end{df}
+%Q Hart S.16
+%Q Forster S.40
+\begin{df}
+Sei $X$ ein integrales Schema, $\O_X$ die zugehörige Strukturgarbe. Eine rationale Funktion auf $X$ wird durch ein Paar $(U,f)$ repräsentiert, wobei $U\subset X$ offen und nicht leer ist und $f\in O_{X,U}$ gilt. Wir identifizieren zwei durch $(U,f)$ und $(V,g)$ repräsentierte rationale Funktionen miteinander, falls $f_{|U\cap V}=g_{|U\cap V}$ gilt. Die Menge der rationalen Funktionen auf $X$ bezeichnen wir mit $K(X)$.
+\end{df}
+Man sieht leicht, daß die auf den Paaren $(U,f)$ definierte Relation eine Äquivalenzrelation ist.
+\begin{bem}
+$K(X)$ ist ein Körper.
+\end{bem}
+Wenn $X$ eine $K$-\var\ ist, so ist $K(X)$ eine $K$-Algebra. Die Einbettung\\ $K\hookrightarrow K(X)$ hängt vom Strukturmorphismus $\varphi:X\longrightarrow\Spec K$ ab. $K(X)$ selbst hängt lediglich vom zugrunde liegenden Schema $X$ ab.
+%Q hart s.24
+\begin{df}
+Seien $X$ und $Y$ irreduzibe Schemata. Eine rationale Abbildung von $X$ nach $Y$ wird durch ein Paar $(U,f)$ repräsentiert, wobei $U$ ein offenes Unterschema von $X$ ist und $U\stackrel{f}{\longrightarrow}Y$ ein Morphimus von Schemata. Wir identifizieren zwei durch $(U,f)$ und $(V,g)$ repräsentierte rationale Abbildungen miteinander, falls $f_{|U\cap V}=g_{|U\cap V}$. D.h. das Diagramm
+$$
+\xymatrix{
+&U\cap V\ar@{_{(}->}[rd]\ar@{^{(}->}[ld]\\
+U\ar[rd]^f&&V\ar[ld]_g\\
+&Y
+}
+$$
+kommutiert.
+\end{df}
+\begin{df}
+Seien $X$ und $Y$ $K$-\var en und $X\stackrel{f}{\longrightarrow}Y$ eine rationale Abbildung. $f$ heißt über $K$ definiert, falls $f$ durch einen Morphismus von $K$-\var en repräsentiert wird.
+\end{df}
+Jede rationale Abbildung $X\longrightarrow Y$, die durch einen Morphismus repräsentiert wird, dessen stetiges Bild dicht ist, induziert einen \khom\ $K(Y)\longrightarrow K(X)$ zwischen den Funktionenkörpern. Jeden Morphismus zwischen Schemata kann man als rationale Abbildung auffassen.\bigskip\\
+In Kapitel \ref{abschnitt_modulk} wird der Modulkörper eines endlichen Morphismus $X\longrightarrow\Pc$ definiert, dazu benötigen wir die folgende Definition:
+\begin{df}
+\label{modulk_dep}
+Sei $\sigma\in\Aut(K)$ ein Körperautomorphimus, und sei $X$ eine $K$-\var\ mit dem Strukturmorphismus $\varphi:X\longrightarrow\Spec K$. Dann erhalten wir durch Kompositum mit $\Spec\sigma:\Spec K\longrightarrow\Spec K$ eine neue $K$-\var\ mit dem Strukturmorphismus $X\stackrel{\varphi}{\longrightarrow}\Spec K\stackrel{\Spec\sigma}{\longrightarrow}\Spec K$. Diese bezeichnen wir mit $X^\sigma$.
+\end{df}
+Die zugrundeliegenden Schemata von $X$ und $X^\sigma$ sind identisch. Die $K$-\var en $X$ und $X^\sigma$ unterscheiden sich lediglich in den Strukturmorphismen nach $\Spec K$.
+
+Sei $t:X\longrightarrow Y$ ein Morphismus zwischen $K$-\var en, und sei $\sigma\in\Aut(K)$. Dann ist auch $t:X^\sigma\longrightarrow Y^\sigma$ ein Morphismus zwischen $K$-\var en, wie man leicht sieht. Wir bezeichnen diesen Morphismus dann mit $t^\sigma$.
+\medskip\\\textbf{Beispiel:}\\
+Sei $X$ eine affine Varietät, d.h. $X=\Spec A$ mit $A=K[X_1\cdots X_n]/I$. Dann ist die \var\ $X^\sigma$ isomorph zur \var\ $\Spec B$ mit $B=K[X_1\cdots X_n]/\sigma^{-1}(I)$.
+\begin{df}
+Sei $L$ ein Körper, und sei $X$ eine \var\ über $L$. Sei\\ $K\subset L$ ein Unterkörper, dann heißt $X$ über $K$ definiert, falls eine $K$-\var\ $X_K$ \ex, so daß $$X=X_K\times_{\Spec K}\Spec L$$ gilt.
+\end{df}
+%Q AlgGeo 1 hinter NoethNorm, ist ein Satz
+%Q Ernst Kunz S.131 Koro 3.9
+\begin{bem}
+\label{defkldim}
+$X$ und $X_K$ haben die gleiche Dimension.
+\end{bem}
+\begin{df}
+Seien $X$ und $Y$ \var en über $L$, die bereits über $K$ definiert sind. Sei $f:X\longrightarrow Y$ ein Morphismus von $L$-\var en. Dann heißt $f$ über $K$ definiert, falls ein Morphismus $f_K:X_K\longrightarrow Y_K$ von $K$-\var en \ex, so daß folgendes Diagramm kommutiert:
+%\[\xymatrix{
+%&X_K\ar[ld]\ar[dd]_{f_K}&&X\ar[ll]\ar[dd]^f\ar[rd]\\
+%\Spec K&&&&\Spec L\\
+%&Y_K\ar[lu]&&Y\ar[ll]\ar[ru]
+%}\]
+\[\xymatrix{
+&X_K\ar[d]_{f_K}&&X\ar[ll]\ar[d]^f\\
+&Y_K&&Y\ar[ll]
+}\]
+\end{df}
+\begin{df}
+Eine \textbf{(glatte) Kurve} über $C$ ist eine $C$-\var\ $X$, deren zugrundeliegendes Schema eindimensional ist, wobei für jeden abgeschlossenen Punkt $x\in X$ der lokale Ring $\O_{X,x}$ ein diskreter Bewertungsring ist.
+\end{df}
+Wir betrachten ausschließlich glatte Kurven, daher wird der Zusatz ``glatt'' weggelassen.\medskip\\
+Sei $X$ eine Kurve über $C$ und $K(X)$ deren Körper der rationalen Funktionen von $X$, dann gilt $deg_{tr}(K(X):C)=1$. Die \KE\ $K(X):C(T)$ ist endlich, aus dem Satz vom primitiven Element folgt dann, daß $K(X)$ über $C$ von höchstens zwei Elementen erzeugt wird, d.h. $K(X)=C(a,b)$ mit $a,b\in K(X)$. Umgekehrt \ex\ zu jeder endlich erzeugten \KE\ $\widetilde C$ vom Transzendenzgrad $1$ über $C$ eine vollständige Kurve $Y$, so daß $K(Y)=\widetilde C$ gilt.
+\begin{df}
+Sei $X$ ein (glatte) Kurve, dann heißt $X$ \textbf{vollständig}, falls zu jedem diskreten Bewertungsring $R$, der zwischen $K$ und $K(X)$ liegt, ein \mbox{$x\in X$} \ex, so daß $R\cong \O_{X,x}$ gilt.
+\end{df}
+%Q Ha S.43
+\begin{satz}
+Seien $X$ und $Y$ vollständige Kurven über $K$, und sei $S\subset X$ eine endliche Teilmenge von abgeschlossenen Punkten. Sei $\varphi:X\setminus S\longrightarrow Y$ ein Morphismus von $K$-\var en, dann \ex\ eindeutig eine Fortsetzung \\$\widetilde\varphi:X\longrightarrow Y$ von $\varphi$.
+\end{satz}
+\begin{fol}
+Jede rationale Abbildung zwischen zwei vollständigen Kurven $X$ und $Y$, die über $C$ definiert ist, wird von einem Morphismus $X\longrightarrow Y$ repräsentiert. Ein \khom\ $K(Y)\longrightarrow K(X)$ induziert einen Morphismus $X\longrightarrow Y$.
+\end{fol}
+\subsection{Endliche Morphismen}
+%Q Ha S.91 Ex 3.4
+\begin{df}
+Seien $X$ und $Y$ $C$-\var en, und sei $f:X\longrightarrow Y$ ein Morphismus. Dann ist $f$ ein \textbf{endlicher Morphismus}, falls für jede offene affine Teilmenge $V\cong\Spec A\subset Y$ das Urbild $U:=f^{-1}(V)$ affin ist, also $U\cong\Spec B$ gilt, und $B$ vermöge dem induzierten Morphismus $A\longrightarrow B$ eine modulendliche $A$-Algebra ist.
+\end{df}
+Sei $f:X\longrightarrow Y$ ein endlicher Morphismus zwischen Kurven über $C$, dann ist das Bild jeder offenen Teilmenge dicht in $Y$. Damit induziert $f$ einen \khom\ $f^*:K(Y)\longrightarrow K(X)$, dieser ist injektiv. Insbesondere sind damit die induzierten Ringhomomorphismen zwischen den affinen Koordinatenringen und auch die lokalen Ringhomomorphismen injektiv.
+\begin{satz}
+\label{welchemorphendl}
+Seien $X$ und $Y$ Kurven, und sei $X$ vollständig. Sei $f:X\longrightarrow Y$ ein nicht-konstanter Morphismus. Dann gilt
+\begin{enumerate}
+\item $f$ ist ein endlicher Morphismus
+\item $f(X)=Y$
+\item $Y$ ist vollständig.
+\end{enumerate}
+\end{satz}
+Beweis: Proposition 6.8 auf S.137 in \cite{Hartshorne}\bigskip\\
+Seien $X$ und $Y$ vollständige Kurven, und sei $f$ ein endlicher Morphismus. Dann ist der Grad der \KE\ $K(X):K(Y)$ endlich. Wir definieren den \textbf{Grad} von $f$ als den Grad der \KE\ $K(X):K(Y)$. Wir wissen, daß sich Grade von \KE en multiplizieren, d.h. seien $L:M$ und $M:K$ endliche \KE en, dann gilt $[L:K]=[K:M]\cdot[M:K]$. Per Definition multiplizieren sich die Grade von endlichen Morphismen ebenfalls.
+\begin{df}
+Seien $X$ und $Y$ Kurven über $C$, und sei $t:X\longrightarrow Y$ ein endlicher Morphismus. $\Aut(t)$ bezeichne die Gruppe derjenigen Isomorphismen $f:X\longrightarrow X$, für die $t\circ f=t$ gilt.
+\[
+\xymatrix{
+X\ar[rr]^f \ar[rd]_t &&X\ar[ld]^t\\
+&Y}
+\]
+\end{df}
+\begin{lem}
+\label{algcovgalois}
+Seien $X$ und $Y$ Kurven über $C$, und sei $t:X\longrightarrow Y$ ein endlicher Morphismus. Sei $P\in X$, so daß $t$ unverzweigt in $P$ ist. Sei $f:X\longrightarrow X$ aus $\Aut(t)$ mit $f(P)=P$, dann ist $f$ die Identität.
+\end{lem}
+\[\xymatrix{
+X \ar[rr]^f \ar[rd]_t &&X\ar[ld]^t\\
+&Y
+}\]
+\bew
+$t$ bzw. $f$ induziert einen lokalen $C$-Algebren\homo\\ $\varphi_t:\O_{Y,f(P)}\longrightarrow\O_{X,P}$ bzw. $\varphi_f:\O_{X,P}\longrightarrow\O_{X,P}$ im Punkt $P$. Sei $r\in\O_{Y,f(P)}$ ein lokaler Parameter, dann ist $s:=\varphi_t(r)$ ebenfalls ein lokaler Parameter, da $t$ unverzweigt in $P$ ist.
+\[\xymatrix{
+\O_{X,P}&&\O_{X,P}\ar[ll]_{\varphi_f}\\
+&\O_{Y,f(P)}\ar[ul]^{\varphi_t}\ar[ur]_{\varphi_t}
+}\]
+Es gilt
+\[
+\varphi_f(s)=\varphi_f(\varphi_t(r))=\varphi_t(r)=s
+\]
+Damit ist $\varphi_f$ die Identität, da $\varphi_f$ durch das Bild des lokalen Parameters $s$ eindeutig bestimmt ist. $f$ induziert einen \khom\\ $f^*:K(X)\longrightarrow K(X)$ dieser ist die Identität, da $K(X)$ der Quotientenkörper von $\O_{X,P}$ ist. Damit ist auch $f$ die Identität.\sieg
+\begin{df}
+Seien $p_1:Y_1\longrightarrow X$ und $p_2:Y_1\longrightarrow X$ endliche Morphismen zwischen Kurven über $\C$. $(Y_1,p_1)$ und $(Y_2,p_2)$ heißen isomorph als endliche  Morphismen nach $X$, falls ein Isomorphismus $f:Y_1\longrightarrow Y_2$ \ex, so daß $p_2\circ f=p_1$ gilt.
+\[\xymatrix{
+Y_1\ar[rd]_{p_1}\ar[rr]^f&&Y_2\ar[ld]^{p_2}\\
+&X
+}\]
+\end{df}
+\begin{bem}
+Die soeben definierte Relation zwischen endlichen Morphismen ist eine Äquivalenzrelation.
+\end{bem}
+Die Begründung ist die gleiche wie die von Bemerkung \ref{eqrelisossdfjko}.\sieg

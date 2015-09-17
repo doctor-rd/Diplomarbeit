@@ -1,0 +1,176 @@
+\section{Galois Überlegungen}
+Im Folgenden ist $C$ ein algebraisch abgeschlossener Körper und alle auftretenden Körper haben Charakteristik 0.
+\subsection{Galois Korrespondenz}
+\begin{satz}[Fortsetzungssatz]
+\label{fortsatzalg2}
+Sei $K$ ein Körper, $C$ ein algebraisch abge\-schlos\-sener Körper und $\sigma:K\longrightarrow C$ ein \khom. Für jede algebra\-ische Erweiterung $L$ von $K$ existiert eine Fortsetzung zu einem \khom\ $\widetilde\sigma:L\longrightarrow C$.
+\end{satz}
+Beweis mit Zornschem Lemma.\sieg
+%Q Belyi's Theorem Revisited Lemma 1.4
+%Q Bosch, Algebra Transzendenzbasen
+%N Die erste Aussage kann ich für \kga gebrauchen
+%N Fortsetzungssatz wird benutzt, siehe Algebra2 S.11
+%N AlgGeo 1 S.5 ist besser. brauchen K[T]->K[T] injektiv, dann über Quotientenkörper argumentieren
+\begin{lem}
+\label{auto_fortsetung}
+Sei $K\subset C$ ein Unterkörper, dann kann jeder Körperautomorphismus $\sigma\in\Aut(K)$ zu einem Automorphismus auf ganz $C$ fortgesetzt werden.
+\end{lem}
+\bew
+Sei $\tau$ eine Transzendenzbasis von $C:K$. Nun läßt sich jedes $x\in K(\tau)$ als rationale Funktion in $x_1,\dots,x_s\in\tau$ mit Koeffizienten aus $K$ auffassen. Also können wir einen Körperautomorphismus $\widetilde\sigma:K(\tau)\longrightarrow K(\tau)$ definieren, wobei $\sigma$ für jedes $x\in K(\tau)$ auf den Koeffizienten operiert. Es gilt $\widetilde\sigma_{|K}=\sigma$ und $\widetilde\sigma_{|\tau}=\id_\tau$, also ist $\widetilde\sigma$ eine Fortsetzung von $\sigma$ auf $K(\tau)$. Als nächstes müssen wir $\widetilde\sigma$ zu einem Automorphismus auf $C$ fortsetzen. $C:K(\tau)$ ist eine algebraische Erweiterung und $\widetilde\sigma$ ist ein Körperhomomorphismus von $K(\tau)$ nach $C$. Nach Satz \ref{fortsatzalg2} existiert eine Fortsetzung $\overline\sigma:C\longrightarrow C$ von $\widetilde\sigma$. Das Bild von $\overline\sigma$ ist ein algebraisch abgeschlossener Unterkörper von $C$, da $C$ algebraisch abgeschlossen ist. Also gilt $\Im\overline\sigma=C$, damit ist $\overline\sigma$ ein Körperautomorphismus.\sieg
+%N FÜR KÖCK 3.2
+Anwendung von Lemma \ref{auto_fortsetung}:
+\begin{satz}
+\label{lemma_vrf}
+Sei $K\subset C$ Unterkörper, dann gilt
+\[C^{\Aut(C:K)}=K\]
+\end{satz}
+Beweis:
+\begin{description}
+\item [,,$\subset$'']\ \\
+Sei $x\in C\smallsetminus K$. Es ist zu zeigen, daß ein $\sigma\in\Aut(C:K)$ \ex, so daß $\sigma(x)\not=x$ gilt.
+\begin{description}
+\item[\rm Fall 1:]$x$ ist transzendent über $K$\\
+Wähle $\sigma\in\Aut(K(x):K)$ mit $\sigma(x)=-x$. $\sigma$ kann nach Lemma \ref{auto_fortsetung} zu einem Automorphismus auf ganz $C$ fortgesetzt werden.
+\item[\rm Fall 2:]\ \\
+%N Aufjedenfall ist K(x) isomorph zu K(y). Vielleicht geht das auch ohne normale Hülle
+$x$ hat ein Minimalpolynom $m_x\in K[X]$. Sei
+\[N:=\{x\in C\mid m_x(x)=0\}\]
+die Nullstellenmenge von $m_x$, dann ist $K(N)$ der Zerfällungskörper von $m_x$. $m_x$ ist separabel, also können wir ein $\sigma\in\Aut(K(N):K)$ mit \mbox{$\sigma(x)\not=x$} wählen. $\sigma$ kann zu einem Automorphismus auf ganz $C$ fortgesetzt werden.
+\end{description}
+\item [,,$\supset$'']\ \\
+klar per Definition
+\end{description}
+\sieg
+%Q Belyi's Theorem Revisited
+\begin{df}
+Eine Untergruppe $U\subset\Aut(C)$ heißt abgeschlossen, falls ein Unterkörper $K\subset C$ mit $U=\Aut(C:K)$ \ex.
+\end{df}
+\begin{bem}
+$U\subset\Aut(C)$ abgeschlossen $\impl$ $U=\Aut(C:C^U)$
+\end{bem}
+\bew
+Sei $U$ abgeschlossen, d.h. $U=\Aut(C:L)$ mit einem Unterkörper $L\subset C$. Nach Satz \ref{lemma_vrf} gilt $C^U=L$ und daraus folgt $U=\Aut(C:C^U)$.\sieg
+Wir erhalten damit eine Galois Korrespondenz zwischen den abgeschlossenen Untergruppen von $\Aut(C)$ und den Unterkörpern von $C$:
+\begin{eqnarray*}
+K&\longmapsto&\Aut(C:K)\\
+U&\longmapsto&C^U
+\end{eqnarray*}
+\subsection{Unendliche \KE en}
+%Q Belyi's Theorem Revisited Lemma 1.5
+%Q Alebra 2 S. 25
+%N K^phi(U)=C^U steht auf nem Schmierzettel, wird für Lemma 1.5 und 1.6 benutzt
+%N VERBESSERN! NACH GAMST IST DAS EINE NB
+\begin{lem}
+\label{abgkriteri}
+Sei $U\subset\Aut(C)$ eine Untergruppe und $K:C^U$ eine endliche Körpererweiterung mit $\Aut(C:K)\subset U$. Dann ist $U$ abgeschlossen.
+\end{lem}
+\bew
+Wenn wir $K$ durch seinen normalen Abschluß ersetzen, gelten die Voraussetzungen weiterhin, also können wir annehmen, daß $K:C^U$ eine normale und damit galoissche \KE\ ist. Wir haben nun den Einschränkungshomomorphismus
+\begin{eqnarray*}
+\varphi:\Aut(C:C^U)&\longrightarrow&\Aut(K:C^U)\\
+\sigma&\longmapsto&\sigma_{|K}
+\end{eqnarray*}
+Per Definition gilt $U\subset\Aut(C:C^U)$. Sei $\varphi(U)$ das Bild von $U$, dann gilt $K^{\varphi(U)}=C^U$ und daraus folgt $\varphi(U)=\Aut(K:C^U)$, da die \KE\ $K:C^U$ galoissch und endlich ist.
+
+Es gilt $\ker\varphi=\Aut(C:K)$ und $\Aut(C:K)\subset U\subset\Aut(C:C^U)$, also erhalten wir einen Isomorphismus
+\[\Aut(C:C^U)/\Aut(C:K)\cong\Aut(K:C^U)\]
+und damit gilt $U=\Aut(C:C^U)$.\sieg
+%Q Algebra 2 S.41
+\begin{bem}
+\label{normal_zusatz}
+Sei $U\subset\Aut(C)$ eine Untergruppe, und sei $\sigma\in\Aut(C)$ ein Körperautomorphismus. Dann gilt
+\[C^{\sigma U\sigma^{-1}}=\sigma(C^U)\]
+\end{bem}
+Beweis:
+\begin{eqnarray*}
+x\in C^{\sigma U\sigma^-1}&\Longleftrightarrow&\forall\tau\in U\colon x=\sigma\tau\sigma^{-1}(x)\\
+&\Longleftrightarrow&\forall\tau\in U\colon\sigma^{-1}(x)=\tau(\sigma^{-1}(x))\\
+&\Longleftrightarrow&\sigma^{-1}(x)\in C^U\\
+&\Longleftrightarrow&x\in\sigma(C^U)
+\end{eqnarray*}
+\sieg
+%N FÜR BEWEIS VON 66
+\begin{lem}
+\label{normal_endlich_easy2see}
+Sei $G$ eine Gruppe, $H\subset G$ eine Untergruppe von endlichem Index. Dann \ex\ eine Untergruppe $N\subset G$, die normal und von endlichem Index ist, so daß $N\subset H$ gilt.
+\end{lem}
+\bew
+Zuerst zeigen wir, daß für Untergruppen $H_1$, $H_2$ von endlichem Index die Untergruppe $H_1\cap H_2$ endlichen Index hat.  Sei $a\in G$, dann gilt \\$a(H_1\cap H_2)=aH_1\cap aH_2$. Nun haben $H_1$, $H_2$ nur endlich viele Nebenklassen, daraus folgt, daß $H_1\cap H_2$ endlich viele Nebenklassen hat. Wir betrachten für alle $\sigma\in G$ die konjugierten $\sigma H\sigma^{-1}$ von $H$, dann folgt induktiv, daß
+\[N:=\bigcap\limits_{\sigma\in G}\sigma H\sigma^{-1}\]
+endlichen Index in $G$ hat. Es bleibt zu zeigen, daß $N$ normal in $G$ ist. Für $\tau\in G$ gilt
+\[
+\tau N\tau^{-1}=\tau\left(\bigcap\limits_{\sigma\in G}\sigma H\sigma^{-1}\right)\tau^{-1}=\bigcap\limits_{\sigma\in G}(\tau\sigma)H(\tau\sigma)^{-1}=\bigcap\limits_{\sigma\in G}\sigma H\sigma^{-1}=N
+\]
+\sieg
+%Q Bosch S.140
+\begin{satz}
+\label{lemma_weildescent_endlerz}
+Sei $L$ ein Körper, $G\subset\Aut(L)$ eine endliche Untergruppe, und sei $K:=L^G$ der Fixkörper von $G$. Dann ist die \KE\ $L:K$ endlich und  galoissch.
+\end{satz}
+Beweis: Satz 4 auf S.140 in \cite{bosch}
+%Q Köck Lemma 1.6
+%Q Bosch S.18
+\begin{lem}
+\label{indendldegendl}
+Sei $U\subset\Aut(C)$ eine Untergruppe und $V\subset U$ eine Untergruppe von endlichem Index. Dann ist die \KE\ $C^V:C^U$ endlich algebraisch. Falls $V$ normal in $U$ oder $U$ abgeschlossen ist, gilt
+\[
+[C^V:C^U]\leq[U:V]
+\]
+\end{lem}
+\bew
+Nach Lemma \ref{normal_endlich_easy2see} \ex\ eine Untergruppe $W\subset U$, die normal und von endlichem Index ist, so daß $W\subset V$ gilt. Wegen Bemerkung \ref{normal_zusatz} gilt $\sigma(C^W)=C^W$ für alle $\sigma\in U$. Nun können wir folgenden \ghom\ definieren:
+\begin{eqnarray*}
+\varphi:U&\longrightarrow&\Aut(C^W:C^U)\\
+\sigma&\longmapsto&\sigma_{|C^W}
+\end{eqnarray*}
+Es gilt $W\subset\ker\varphi$, damit erhalten wir kanonisch
+\begin{eqnarray*}
+\widetilde\varphi:U/W&\longrightarrow&\Aut(C^W:C^U)
+\end{eqnarray*}
+Nun gilt $(C^W)^{\varphi(U)}=C^U$, und aus $U/W$ endlich folgt $\varphi(U)$ endlich. Also ist $C^U\subset C^W$ Fixkörper einer endlichen Gruppe, damit ist die \KE\ $C^W:C^U$ nach Satz \ref{lemma_weildescent_endlerz} endlich und galoissch. Daraus folgt \\$\varphi(U)=\Aut(C^W:C^U)$.
+Insbesondere ist $C^V:C^U$ endlich, da $C^V$ ein Zwischenkörper von $C^W:C^U$ ist. $\widetilde\varphi$ ist surjektiv, also gilt
+\[
+[C^W:C^U]=\#\Aut(C^W:C^U)\leq\#U/W=[U:W]
+\]
+Damit gilt $[C^V:C^U]\leq[U:V]$, falls $V$ bereits normal in $U$ ist.
+
+$W$ ist normal und von endlichem Index in $V$, also ist auch $[C^W:C^V]$ mit dem gleichen Argument wie oben endlich und galoissch. Nun gilt allgemein:
+\[
+[C^V:C^U]=\frac{[C^W:C^U]}{[C^W:C^V]}=\frac{\#\Aut(C^W:C^U)}{\#\Aut(C^W:C^V)}=\#(\Aut(C:C^U)/\Aut(C:C^V))
+\]
+Sei $U$ abgeschlossen, dann gilt $U=\Aut(C:C^U)$ und $V\subset\Aut(C:C^V)$. Daraus folgt $[C^V:C^U]\leq\#U/V=[U:V]$.\sieg
+\subsection{Anhang: Untergruppen von festem Index}
+\begin{bem}
+\label{stabilisatormaster}
+Sei $G$ eine Gruppe und $X$ eine Menge, auf der $G$ operiere. Sei $x_0\in X$, dann erhalten wir eine bijektive Abbildung
+\[
+\varphi_{x_0}:G/\stab(x_0)\longrightarrow Gx_0
+\]
+Insbesondere ist der Orbit $Gx_0$ von $x_0$ genau dann endlich, wenn $\stab(x_0)$ endlichen Index in $G$ hat.
+\end{bem}
+\begin{satz}
+\label{hall_freie_gruppe}
+Sei $G$ eine endlich erzeugte Gruppe. Sei $d\in\nat\setminus\{0\}$, dann ist die Anzahl der Untergruppen vom Index $d$ endlich.
+\end{satz}
+\bew
+Sei $U\subset G$ eine Untergruppe, dann erhalten wir eine Gruppenoperation
+\begin{eqnarray*}
+G\times G/U&\longrightarrow&G/U\\
+(g,xU)&\longmapsto&(gx)U
+\end{eqnarray*}
+auf den Restklassen von $G/U$. Die Operation ist transitiv und der Stabilisator der Restklasse $U$ ist $U$ selbst. $G$ operiert nun auf einer endlichen Menge, wir numerieren die Restklassen durch, wobei wir $U$ die $1$ zuordnen. $G$ operiert dann transitiv auf $\{1,\dots,d\}$, wobei $\stab(1)=U$ gilt. Wir erhalten also eine surjektive Zuordnung, wenn wir jeder transitiven Operation von $G$ auf $\{1,\dots,d\}$ die Untergruppe $\stab(1)$ vom Index $d$ zuordnen.
+
+Sei $F$ eine freie Gruppe vom Rang $r$, dann ist ein \ghom\ $F\longrightarrow S_d$, wobei $S_d$ die Permutationsgruppe einer $d$-elementigen Menge bezeichnet, durch die Bilder der freien Erzeugenden eindeutig bestimmt, d.h. es gilt \[\#\hom(F,S_d)=(d!)^r\]
+
+Eine Operation von $G$ auf $\{1,\dots,d\}$ ist das gleiche wie ein \ghom\ $G\longrightarrow S_d$. Nun ist $G$ endlich erzeugt, also gilt
+\[\#\hom(G,S_d)\leq(d!)^r\]
+\sieg
+\begin{satz}
+\label{formelhall}
+Sei $G$ eine freie Gruppe vom Rang $r$. Sei $d\in\nat\setminus\{0\}$, dann ist die Anzahl $M_{r,d}$ der Untergruppen vom Index $d$ durch folgende Rekursionsformel gegeben:
+\begin{eqnarray*}
+N_{r,1}&=&1\\
+N_{r,d}&=&d(d!)^{r-1}-\sum\limits_{i=1}^{d-1}(d-i)!^{r-1}N_{r,i}
+\end{eqnarray*}
+\end{satz}
+Beweis: Theorem 7.2.9 auf S.105 in \cite{Hall}

@@ -1,0 +1,129 @@
+\section{Definitionskörper}
+\label{abschnitt_defk}
+Im Folgenden ist $C$ ein \algabg er Körper. In diesem Abschnitt werden wir sehen, daß für einen Morphismus $t:X\longrightarrow\Pc$ die Kurve $X$ und der Morphismus $t$ über einer endlichen Erweiterung des Modulkörpers definiert sind.
+
+Für den Beweis des Satzes von Belyi benötigen wir den Spezialfall $C=\C$.
+\begin{df}
+\label{supermoduli}
+Sei $t:X\longrightarrow\Pc$ ein endlicher Morphismus, und sei $P\in X$ ein abgeschlossener Punkt. $U(X,t,P)$ bezeichnet diejenigen Körperautomorphismen $\sigma\in\Aut(C)$, für die ein Isomorphismus $f_\sigma:X\longrightarrow X$ \ex, so daß $f_\sigma(P)=P$ gilt und folgendes Diagramm kommutiert.
+\[\xymatrix{
+X^\sigma\ar[rr]^{f_\sigma}\ar[d]_{t^\sigma}&&X\ar[d]^t\\
+(\Pc)^\sigma\ar[rr]^{\proj(\sigma)}&&\Pc
+}\]
+\end{df}
+Ich erinnere daran, daß die zugrundeliegenden Schemata von $X$ und $X^\sigma$ identisch sind. Auch die Morphismen $t$ und $t^\sigma$ sind als Morphismen zwischen Schemata identisch.
+
+Insbesondere gilt $U(X,t,P)\subset U(X,t)$\footnote{siehe Definition \ref{moduli_covering}}. Den Fixkörper von $U(X,t,P)$ bezeichnen wir mit $M(X,t,P)$.
+\begin{bem}
+Für $\sigma\in U(X,t,P)$ ist $f_\sigma$ sogar eindeutig bestimmt.
+\end{bem}
+Denn: Sei $g_\sigma$ ein weiterer Isomorphismus mit den beiden Eigenschaften von $f_\sigma$. Dann gilt $f_\sigma\circ g_\sigma^{-1}(P)=P$ und $g_\sigma^{-1}\circ f_\sigma(P)=P$.
+\[\xymatrix{
+X\ar[rr]^{g_\sigma^{-1}}\ar[d]^t&&X^\sigma\ar[rr]^{f_\sigma}\ar[d]^{t^\sigma}&&X\ar[d]^t&X\ar[rr]^{f_\sigma\circ g_\sigma^{-1}}\ar[rd]_t&&X\ar[ld]^t\\
+\Pc\ar[rr]^{\proj(\sigma)^{-1}}&&(\Pc)^\sigma\ar[rr]^{\proj(\sigma)}&&\Pc&&\Pc
+}\]
+Nach Lemma \ref{algcovgalois} gilt $f_\sigma\circ g_\sigma^{-1}=\id$ und $g_\sigma^{-1}\circ f_\sigma=\id$, daraus folgt $g_\sigma=f_\sigma$.\sieg
+%Q Köck S7
+\begin{bem}
+\label{op_uxtp}
+Sei $\sigma\in U(X,t,P)$, dann induziert das eindeutig gegebene $f_\sigma$ einen Körperautomorphsimus $f_\sigma^*:K(X)\longrightarrow K(X)$. Insbesondere kommutiert das folgende Diagramm:
+\[\xymatrix{
+K(X)&&K(X)\ar[ll]_{f_\sigma^*}\\
+C(T)\ar[u]^{t^*}&&C(T)\ar[u]_{t^*}\ar[ll]^{\sigma}
+}\]
+Wir erhalten also eine Gruppenoperation von $U(X,t,P)$ auf $K(X)$.
+\end{bem}
+\begin{lem}
+\label{def_endliche_erw}
+Sei $t:X\longrightarrow\Pc$ ein endlicher Morphismus, und sei \mbox{$Q\in\Pc$} ein $\Q$-rationaler Punkt. Sei $P\in t^{-1}(Q)$, dann ist die \KE\\ $M(X,t,P):M(X,t)$ endlich algebraisch.
+\end{lem}
+\bew
+Sei $\sigma\in U(X,t)$. $Q$ ist $\Q$-rational, also ist $Q$ nach Bemerkung \ref{qratinv} invariant unter $\proj(\sigma)$. Zu $\sigma$ \ex\ ein Morphismus $f_\sigma:X^\sigma\longrightarrow X$, so daß das Diagramm
+\[\xymatrix{
+X^\sigma\ar[rr]^{f_\sigma}\ar[d]_{t^\sigma}&&X\ar[d]^t\\
+(\Pc)^\sigma\ar[rr]_{\proj(\sigma)}&&\Pc
+}\]
+kommutiert, damit ist $t^{-1}(Q)$ invariant unter $f_\sigma$. Ich erinnere daran, daß die Morphismen $t$ und $t^\sigma$ als Morphismen zwischen Schemata identisch sind.
+
+Wir betrachten den Quotienten $t^{-1}(Q)/\Aut(t)$, wobei wir zwei Punkte $P_1$ und $P_2$ aus der Faser von $Q$ identifizieren, falls ein $\varphi\in\Aut(t)$ \ex, so daß $\varphi(P_1)=P_2$ gilt. $U(X,t)$ operiert auf $t^{-1}(Q)/\Aut(t)$ via
+\begin{eqnarray*}
+U(X,t)\times t^{-1}(Q)/\Aut(t)&\longrightarrow&t^{-1}(Q)/\Aut(t)\\
+(\sigma,\overline P)&\longmapsto&\overline{f_\sigma(P)}
+\end{eqnarray*}
+Diese Definition ist unabhängig von der Wahl von $P$ und $f_\sigma$, denn sei $\overline P_1=\overline P_2$ und seien $f_\sigma$ und $g_\sigma$ gemäß der Definition von $U(X,t)$ gewählt. Es \ex\ ein $r\in\Aut(t)$ mit $r(P_1)=P_2$. Setze $s:=g_\sigma\circ r\circ f_\sigma^{-1}$, dann ist $s$ ein Isomorphismus. Zu zeigen ist $s\in\Aut(t)$ und $s(f_\sigma(P_1))=g_\sigma(P_2)$, damit wäre die Wohldefiniertheit gezeigt. In den folgenden Umformungen werde ich nicht zwischen $t$ und $t^\sigma$ unterscheiden.
+\begin{eqnarray*}
+t\circ s&=&t\circ (g_\sigma\circ r\circ f_\sigma^{-1})\\
+&=&(t\circ g_\sigma)\circ r\circ f_\sigma^{-1}\\
+&=&(\proj(\sigma)\circ t)\circ r\circ f_\sigma^{-1}\\
+&=&\proj(\sigma)\circ (t\circ r)\circ f_\sigma^{-1}\\
+&=&\proj(\sigma)\circ t\circ f_\sigma^{-1}\\
+&=&t
+\end{eqnarray*}
+Damit ist $s\in\Aut(t)$ gezeigt. Es fehlt noch $s(f_\sigma(P_1))=g_\sigma(P_2)$.
+\[s\circ f_\sigma(P_1)=(g_\sigma\circ r\circ f_\sigma^{-1})\circ f_\sigma(P_1)=g_\sigma\circ r(P_1)=g_\sigma(P_2)\]
+Damit ist die Wohldefiniertheit gezeigt. Man sieht leicht, daß wir eine Gruppenoperation erhalten haben.
+
+$U(X,t,P)$ ist der Stabilisator von $\overline P$, denn:
+Jedes Element aus $U(X,t,P)$ läßt insbesondere $\overline P$ invariant. Sei nun $\sigma\in\stab(\overline P)$ dann steht $P$ in relation mit $f_\sigma(P)$, d.h. es existiert $r\in\Aut(t)$ mit $r(f_\sigma(P))=P$. $g_\sigma:=r\circ f_\sigma$ ist dann der gesuchte Isomorphismus, d.h. $g_\sigma(P)=P$. Damit gilt $U(X,t,P)=\stab(\overline P)$. Nach Bemerkung \ref{stabilisatormaster} hat $U(X,t,P)$ endlichen Index in $U(X,t)$, und nach Lemma \ref{indendldegendl} ist die \KE\ \mbox{$M(X,t,P):M(X,t)$} endlich algebraisch.\sieg
+\begin{lem}
+\label{laurent_zerl}
+Sei $P\in X$ ein abgeschlossener Punkt und $s\in\O_{X,P}$ ein lokaler Paramter. Sei $f\in K(X)$ mit $n:=-\ord_P(f)\geq 1$, d.h. $f$ hat einen Pol der Ordnung $n$ in $P$. Dann hat $f$ eine eindeutige Darstellung
+\[
+f=\frac{a_{-n}}{s^n}+\frac{a_{-(n-1)}}{s^{n-1}}+\dots+a_o+r
+\]
+mit $a_{-n},\dots,a_0\in C$ und $r\in\m_P$.
+\end{lem}
+\bew
+Es gilt $K(X)=Q(\O_{X,P})$, also hat $f$ eine Darstellung $f=\frac ab$ mit $a,b\in\O_{X,P}$. Wir können annehmen, daß der Bruch soweit gekürzt ist, daß $v_p(a)=0$ und $v_P(b)=n$ gilt. Außerdem können wir annehmen, daß der Bruch mit einer Einheit erweitert wurde, so daß $b=s^n$ gilt. Wir erhalten damit $f=\frac a{s^n}$ mit $a\in\O_{X,P}$.
+
+Nach Lemma \ref{disk_supertrick} hat $a$ eine eindeutige Darstellung $a=a_{-n}+b$ mit $a_{-n}\in C$ und $b\in\m_P$. Wir erhalten $f=\frac{a_{-n}}{s^n}+\frac{b}{s^n}$. Wegen $v_p(b)>0$ gilt $-\ord_P(\frac{b}{s^n})<n$, also hat $f$ eine eindeutige Darstellung $f=\frac{a_{-n}}{s^n}+f'$ mit $-\ord_P(f')<n$. Diese Zerlegung führen wir mit $f'$ erneut durch, bis schließlich $v_p(f')>0$ gilt, d.h. $f'\in\m_P$.\sieg
+\begin{thm}
+\label{koeck22}
+Sei $t:X\longrightarrow\Pc$ ein endlicher Morphismus, dann sind $X$ und $t$ über einer endlichen Erweiterung von $M(X,t)$ definiert.
+\end{thm}
+Der Funktionenkörper von $\P1$ ist isomorph zum Körper der rationalen Funktionen in einer Veränderlichen $C(T)$. Sei $K(X)$ der Funktionenkörper von $X$, dann induziert $t:X\longrightarrow\P1$ einen \khom\ $t^*:C(T)\longrightarrow K(X)$.
+
+Nach Folgerung \ref{endlkritendl} ist die Menge der kritischen Werte von $t$ endlich, wir wählen einen $\Q$-rationalen Punkt $Q\in\P1$, der kein kritischer Wert von $t$ ist. Wir wählen ein $P\in t^{-1}(Q)$, dann ist $P$ kein kritischer Punkt von $t$ und nach Bemerkung \ref{verzequivkrit} ist $t$ unverzweigt in $P$.
+
+Nach Folgerung \ref{fkt_mit_polordng} \ex\ eine nicht-konstante rationale Funktion\\ $\textfrak z\in K(X)\setminus C$, so daß $P$ der einzige Pol von $\textfrak z$ ist. Wir wählen $\textfrak z$ so, daß die Polordnung $n:=-\ord_P(\textfrak z)$ im Punkt $P$ minimal ist.
+
+Nach Bemerkung \ref{lok_inv_rat} können wir einen lokalen Parameter $r\in\m_Q$ so wählen, daß $r$ invariant unter $\Aut(C)$, also insbesondere invariant unter $U(X,t,P)$ ist. Sei $\varphi$ der durch $t$ induzierte lokale Ring\homo\ im Punkt $P$, dann ist $s:=\varphi(r)\in\m_P$ ebenfalls invariant unter $U(X,t,P)$, wie man anhand des Diagramms aus Bemerkung \ref{op_uxtp} erkennen kann. Nach Lemma \ref{laurent_zerl} hat $\textfrak z$ eine eindeutige Darstellung
+\[\textfrak z=\frac{a_{-n}}{s^n}+\frac{a_{-(n-1)}}{s^{n-1}}+\dots+a_o+r\textrm{ mit } r\in\m_p\]
+Setze $\textfrak z':=\frac 1{a_{-n}}\cdot\textfrak z-\frac{a_0}{a_{-n}}$. Seien $a_i'$ die Koeffizienten von $\textfrak z'$, dann gilt $a'_{-n}=1$ und $a'_0=0$.
+
+$\textfrak z'$ ist damit eindeutig bestimmt, denn sei $\textfrak z''\in K(X)$, so daß $P$ der einzige Pol von $\textfrak z''$ ist, wobei die Polordnung minimal ist und $a''_{-n}=1$, $a''_0=0$ gilt. Dann hat $\textfrak z'-\textfrak z''$ keinen Pol $n-ter$ Ordnung in $P$ und ist wegen der Minimalität von $n$ damit konstant. Nun gilt $\textfrak z'-\textfrak z''\in\m_p\cap C$, also $\textfrak z'-\textfrak z''=0$. Von nun an nehmen wir an, daß $\textfrak z$ diese Eigenschaften hat, d.h. es gilt $\textfrak z=\textfrak z'$.
+
+Der durch den \khom
+\begin{eqnarray*}
+z^*:C(T)&\longrightarrow&K(X)\\
+T&\longmapsto&z
+\end{eqnarray*}
+induzierte Morphismus $z$ ist nach Satz \ref{alles_gleichoft} in $P$ total verzweigt. Setze \\\mbox{$\textfrak t:=t^*(T)\in K(X)\setminus C$}, dann gilt $C(\textfrak t,\textfrak z)\cong K(X)$. Um das zu sehen, zeigen wir, daß die \KE\ $K(X):C(\textfrak t,\textfrak z)$ Grad $1$ hat. Es \ex\ eine Kurve $Y$ über $C$, so daß $C(\textfrak t,\textfrak z)\cong K(Y)$ gilt. Die Inklusion $\pi^*:C(\textfrak t,\textfrak z)\hookrightarrow K(X)$ induziert einen endlichen Morphismus $\pi:X\longrightarrow Y$. Wir erhalten insgesamt folgendes kommutative Diagramm:
+\[
+\xymatrix{
+\Pc\\
+&Y\ar[lu]\ar[ld]&&X\ar[llld]^z\ar[lllu]_t\ar[ll]_\pi\\
+\Pc
+}
+\]
+Nach Bemerkung \ref{verzwmult} multiplizieren sich die Verzweigungsindizes beim Kompositum. $t$ ist unverzweigt in $P$, d.h. der Verzweigungsindex in $P$ ist $1$. Der Verzweigungsindex von $\pi$ in $P$ ist damit ebenfalls $1$. $z$ ist total verzweigt in $P$, d.h. der Verzweigungsindex in $P$ stimmt mit dem Grad von $z$ überein. Da sich die Grade von endlichen Morphismen zwischen vollständigen Kurven ebenfalls multiplizieren, ist auch $\pi$ in $P$ total verzweigt. Damit hat $\pi$ Grad $1$ und es gilt $[K(X):K(Y)]=1$.
+
+Der lokale Parameter $s$ aus $\O_{X,P}$ wurde so gewählt, daß er invariant unter $U(X,t,P)$ ist. $\sigma\in U(X,t,P)$ induziert einen lokalen Ringisomorphismus $\O_{X,P}\longrightarrow\O_{X,P}$, es gilt $v_P(\textfrak z)=v_P(\sigma(\textfrak z))$. In Punkten $\not=P$ ist die Bewertung größer gleich $0$, also hat $\sigma(\textfrak z)$ einen Pol minimaler Ordnung in $P$ als einzigen Pol. Seien $a_i$ die Koeffizienten von $\sigma(\textfrak z)$, dann gilt $a_{-n}=1$ und $a_0=0$. Wir hatten vorher gesehen, daß $\textfrak z$ mit diesen Eigenschaften eindeutig bestimmt ist, also gilt $\sigma(\textfrak z)=\textfrak z$. Wir wissen nun, daß $\textfrak z$ invariant unter $U(X,t,P)$ ist. $\textfrak t$ ist per Konstruktion ebenfalls invariant unter $U(X,t,P)$\footnote{siehe Diagramm aus Bemerkung \ref{op_uxtp}}, d.h. $\textfrak t,\textfrak z\in K(X)^{U(X,t,P)}$.
+
+Setze $k:=M(X,t,P)$. Es gilt $C(\textfrak t)^{U(X,t,P)}=k(\textfrak t)$. $\textfrak z$ ist algebraisch über $k(\textfrak t)$, denn $\textfrak z$ hat ein normiertes Minimalpolynom $m_{\textfrak z}=\sum a_iX^i\in C(\textfrak t)[X]$. Für $\sigma\in U(X,t,P)$ gilt $\sigma(m_{\textfrak z})(\textfrak z)=\sum\sigma(a_i)\textfrak z^i=\sigma(\sum a_i\textfrak z^i)=\sigma(m_{\textfrak z}(\textfrak z))=0$. Also ist $\sigma(m_{\textfrak z})$ auch ein normiertes Minimalpolynom von $\textfrak z$ und damit gilt wegen der Eindeutigkeit des Minimalpolynoms $m_{\textfrak z}=\sigma(m_{\textfrak z})$. Daraus folgt $m_{\textfrak z}\in k(\textfrak t)[X]$.
+
+Wir betrachten den Integritätsring $C[\textfrak t,\textfrak z]\cong C[X_1,X_2]/(m_{\textfrak z})$. Dann ist $k[\textfrak t,\textfrak z]$ ebenfalls ein Integritätsring und es gilt $k[\textfrak t,\textfrak z]\otimes_k C\cong C[\textfrak t,\textfrak z]$. Damit ist die affine Kurve $\Spec C[\textfrak t,\textfrak z]$ über $k$ definiert, $K(X)$ ist birational äquivalent zu dieser, also ist $K(X)$ über $k$ definiert. $t$ wird von dem \khom\ $t^*$ induziert, dieser wird wiederum von dem \khom\ $k(T)\longrightarrow k(\textfrak t,\textfrak z)$ induziert. Nach Lemma \ref{def_endliche_erw} ist die \KE\ $k:M(X,t)$ endlich algebraisch.\sieg
+Als nächstes suchen wir eine Abschätzung für den Grad der \KE\ $k:M(X,t)$. Dazu betrachten wir die Beweise von Lemma \ref{def_endliche_erw} und Theorem \ref{koeck22}.
+\begin{bem}
+\label{gradabsch2}
+Sei $d$ der Grad von $t$, und sei $a$ die Anzahl der Elemente in $\Aut(t)$, dann gilt $[M(X,t,P):M(X,t)]\leq\frac da$.
+\end{bem}
+\bew
+Die Faser $t^{-1}(Q)$ hat nach Satz \ref{alles_gleichoft} genau $d$ Elemente, da $Q$ im Beweis von Theorem \ref{koeck22} so gewählt wurde, daß $Q$ kein kritischer Wert von $t$ ist. Wir betrachten nun $t^{-1}(Q)/\Aut(t)$. Sei $P\in t^{-1}(Q)$, dann gilt nach Lemma \ref{algcovgalois} genau dann $f(P)=P$ für $f\in\Aut(t)$, wenn $f=\id$ gilt. Nach dem Burnside Lemma hat $t^{-1}(Q)/\Aut(t)$ dann genau $\frac da$ Elemente. $U(X,t)$ operiert auf $t^{-1}(Q)/\Aut(t)$, der Stabilisator von $\overline P$ ist $U(X,t,P)$. Nach Bemerkung \ref{stabilisatormaster} ist der Index von $U(X,t,P)$ in $U(X,t)$ höchstens $\frac da$. Die Kurve $X$ und der Morphismus $t$ sind über $k=M(X,t,P)$ definiert, damit gilt $\Aut(C:k)\subset U(X,t)$. Nach Lemma \ref{abgkriteri} ist $U(X,t)$ damit abgeschlossen, und nach Lemma \ref{indendldegendl} gilt $[M(X,t,P):M(X,t)]\leq[U(X,t,P):U(X,t)]\leq\frac da$.\sieg
+Nun können wir aus den Bemerkungen \ref{gradabsch1} und \ref{gradabsch2} eine weitere Gradabschätzung folgern:
+\begin{fol}
+Sei $X$ eine vollständige Kurve über $\C$, $t:X\longrightarrow\P1$ ein endlicher Morphismus vom Grad $d$, dessen kritische Werte in $\dreier$ liegen. Sei $a$ die Anzahl der Elemente in $\Aut(t)$, dann sind $X$ und $t$ über einem Zahlkörper $k$ definiert mit
+\[
+[k:\Q]\leq\frac da M_d
+\]
+\end{fol}

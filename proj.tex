@@ -1,0 +1,142 @@
+\section{Die projektive Gerade}
+Im Folgenden ist $C$ ein algebraisch abgeschlossener Körper. In diesem Abschnitt werden einige Eigenschaften des projektiven Schemas $\Pc$, die wir später benötigen werden, betrachtet.
+
+Wir betrachten den Polynomring in zwei Veränderlichen $C[X,Y]$. Sei\\ $S_+:=(X,Y)$ das von $X$ und $Y$ erzeugte Ideal. Die zugrundeliegende Menge von
+\[\P1:=\proj C[X,Y]\]
+besteht aus denjenigen homogenen Primidealen $\p\in C[X,Y]$, die echt in $S_+$ enthalten sind. Dazu gehört der nicht-abgeschlossene Punkt $(0)$ und die abgeschlossenen Punkte $\p\in\Pc$ von der Form $\p=(aX+bY)$ mit $(a,b)\in C^2\setminus\{(0,0)\}$.
+
+Die abgeschlossenen Mengen in $\P1$ sind Teilmengen von der Form \\$V(I)=\{\p\in\Pc\mid I\subset\p\}$ mit einem homogenen Ideal $I\subset C[X,Y]$.
+\subsection{Polynome als Morphismen}
+\label{abschnitt_polymor}
+Im Folgenden werden wir sehen, wie man ein nicht-konstantes Polynom\\ $f\in C[X]$ als Morphismus $\Pc\longrightarrow\Pc$ auffassen kann. Zunächst betrachten wir den einfacheren Fall, indem wir zu einem gegebenen Polynom $f$ einen Morphismus $\Spec C[X]\longrightarrow\Spec C[X]$ konstruieren. Anschließend werden wir diese Konstruktion auf $\Pc$ erweitern.
+
+Sei $f\in C[X]$ ein Polynom. Wir definieren einen $C$-Algebren\homo
+\begin{eqnarray*}
+f^*:C[X]&\longrightarrow&C[X]\\
+X&\longmapsto&f
+\end{eqnarray*}
+Dieser induziert einen Morphismus
+\[\Spec f^*:\Spec C[X]\longrightarrow\Spec C[X]\]
+Sei $(X-\lambda)\in\Spec C[X]$ ein abgeschlossener Punkt, dann gilt
+\[\Spec f^*((X-\lambda))=(X-\mu)\textrm{ mit }\mu=f(\lambda)\]
+Denn: $\lambda$ eine Nullstelle von $f-\mu$, also gilt $f-\mu\in(X-\lambda)$. $f-\mu$ ist das Bild von $X-\mu$ unter $f^*$, also umfaßt das Urbild vom Ideal $(X-\lambda)$ das Ideal $(X-\mu)$. Aus der Maximalität von $(X-\mu)$ folgt die Gleichheit. Man sieht genauso leicht, daß der generische Punkt $(0)$ unter $\Spec f^*$ auf selbigen abgebildet wird.
+% falls $f$ nicht konstant ist.
+
+Wir können also die Punkte aus $C$ mit den abgeschlossenen Punkten aus $\Spec C[X]$ identifizieren, so daß diese Identifikation mit $f\longmapsto\Spec f^*$ verträglich ist.
+Mit dem folgenden Lemma erhalten wir eine Kennzeichung der kritischen Punkte von $\Spec f^*$. Für den Beweis wird eine Bemerkung aus Kapitel \ref{kapitel_verzw} benötigt.
+%Q Bosch 3.6 sep KE Lemma 1
+\begin{lem}
+Sei $(X-\lambda)\in\Spec C[X]$ ein abgeschlossener Punkt, dann ist $(X-\lambda)$ genau dann ein kritischer Punkt von $\Spec f^*$, wenn $f'(\lambda)=0$ gilt.
+\end{lem}
+\bew
+Setze $\mu:=f(\lambda)$, dann ist $\lambda$ eine Nullstelle von $f-\mu$, d.h. $f-\mu\in(X-\lambda)$. Es gilt $f-\mu\in(X-\lambda)^2$ genau dann, wenn $\lambda$ eine mehrfache Nullstelle von $f-\mu$ ist. Nun ist allgemein bekannt, daß $\lambda$ genau dann eine mehrfache Nullstelle von $f-\mu$ ist, wenn $f'(\lambda)=(f-\mu)'(\lambda)=0$ gilt.
+
+ $\Spec f^*$ induziert einen lokalen \rhom\
+\begin{eqnarray*}
+\varphi:C[X]_{(X-\mu)}&\longrightarrow&C[X]_{(X-\lambda)}\\
+X&\longmapsto&f
+\end{eqnarray*}
+zwischen nach maximalen Idealen lokalisierten Polynomringen. $X-\mu$ und $X-\lambda$ sind die Erzeugenden der entsprechenden maximalen Ideale.
+
+Nun gilt $f'(\lambda)=0$ genau dann, wenn $X-\mu$ unter $\varphi$ nach $(X-\lambda)^2$ abgebildet wird. Nach Bemerkung \ref{verzequivkrit} ist daß äquivalent dazu, daß $(X-\lambda)$ ein kritischer Punkt von $\Spec f^*$ ist.\sieg
+Nun werden wir $f$ einen Morphismus $\Pc\longrightarrow\Pc$ zuordnen. Sei $n$ der Grad von $f(X)$, und sei $F(X,Y):=Y^nf\left(\frac XY\right)$ die Homogenisierung nach $Y$. Es gilt $n\geq 1$, da $f$ nicht-konstant ist. Wir definieren einen $C$-Algebren\homo
+\begin{eqnarray*}
+F^*:C[X,Y]&\longrightarrow&C[X,Y]\\
+X&\longmapsto&F\\
+Y&\longmapsto&Y^n
+\end{eqnarray*}
+$F^*$ ist injektiv, und homogene Polynome werden unter $F^*$ auf homogene Polynome abgebildet. Umgekehrt sind auch die Urbilder homogener Polynome homogen. Wir betrachten nun die Urbilder homogener Primideale. Das Urbild von $(Y)$ ist $(Y)$. Wegen der Injektivität von von $F^*$ ist das Urbild von $(0)$ ebenfalls $(0)$. Es fehlt noch das Urbild von $(X-\lambda Y)$ mit $\lambda\in C$.
+
+Setze $\mu:=f(\lambda)$, dann ist $X-\lambda$ ein Teiler von $f-\mu$, d.h. es \ex\ ein $g\in C[X]$ mit
+\[f-\mu=g\cdot (X-\lambda)\]
+Wir homogenisieren beide Seiten der Gleichung nun nach $Y$:
+\begin{eqnarray*}
+Y^n\cdot\left(f\left(\frac XY\right)-\mu\right)&=&Y^n\cdot g\left(\frac XY\right)\cdot\left(\frac XY-\lambda\right)\\
+\Longleftrightarrow F(X,Y)-\mu Y^n&=&Y^{n-1}\cdot g\left(\frac XY\right)\cdot (X-\lambda Y)
+\end{eqnarray*}
+Also ist $X-\lambda Y$ ein Teiler von $F(X,Y)-\mu Y^n$, damit gilt
+\[F(X,Y)-\mu Y^n\in(X-\lambda Y)\]
+Damit ist $(X-\mu Y)$ im Urbild von $(X-\lambda Y)$ enthalten. Nun ist $(X-\mu Y)$ ein maximales homogenes Ideal, daraus folgt die Gleichheit.
+
+Wir erhalten damit eine stetige Abbildung
+\[\proj F^*:\proj C[X,Y]\longrightarrow\proj C[X,Y]\]
+
+Als nächstes werden wir die kritischen Punkte von $\proj F^*$ kennzeichnen. Wir betrachten das affine Unterschema $D_+(Y)\subset\Pc$, das sind alle Punkte bis auf den Punkt im unendlichen $(Y)$. Es gilt $\Spec C[X]\cong D_+(Y)$, und der Morphismus ${\proj F^*}_{|D_+(Y)}$ entspricht dem Morphismus $\Spec f^*$. Wir erhalten folgendes Resultat:
+\begin{fol}
+$(X-\lambda Y)$ ist genau dann ein kritischer Punkt von $\proj F^*$, wenn $f'(\lambda)=0$ gilt.
+\end{fol}
+\subsection{Gebrochen-lineare  \Tf en als Morphismen}
+\label{abschnitt_gbmor}
+Wir betrachten bijektive \gb e \Tf en $\frac{ax+b}{cx+d}$, d.h. es gilt
+\[\det \left[\begin{array}{cc}
+a&b\\c&d
+\end{array}
+\right]\not=0
+\]
+Zu einer gegebenen \gb en \Tf\ definieren wir einen $C$-Algebren\homo
+\begin{eqnarray*}
+C[X,Y]&\longrightarrow&C[X,Y]\\
+X&\longmapsto&aX+bY\\
+Y&\longmapsto&cX+dY
+\end{eqnarray*}
+Nun betrachten wir die Urbilder von Punkten aus $D_+(Y)$, also Punkte der Form $(X-\lambda Y)$ mit $\lambda\in C$. Dazu unterscheiden wir zwei Fälle:
+\begin{description}
+\item[$\lambda\not=-\frac dc$:]\ \\
+Das Urbild von $(X-\lambda Y)$ ist das Ideal $(X-\mu Y)$ mit $\mu=\frac{a\lambda+b}{c\lambda+d}$. Denn: Das Bild von $X-\mu Y$ ist $(aX+bY)-\mu(cX+dY)$. Wir multiplizieren mit der Einheit $c\lambda+d$:
+\begin{eqnarray*}
+&&(c\lambda+d)(aX+bY)-(a\lambda+b)(cX+dY)\\
+&=&(ac\lambda+ad-ac\lambda-bc)X+(bc\lambda+bd-ad\lambda-bd)Y\\
+&=&(ad-bc)X+(bc\lambda-ad\lambda)Y\\
+&=&(ad-bc)X-\lambda(ad-bc)Y
+\end{eqnarray*}
+Wir dividieren nochmal durch $ad-bc\not=0$, dann wird $X-\lambda Y$ getroffen.
+\item[$\lambda=-\frac dc$:]\ \\
+Das Urbild von $(X-\lambda Y)=(cX+dY)$ ist das Ideal $(Y)$.
+\end{description}
+Wir können \gb e \Tf en also als Morphismen\\ $\Pc\longrightarrow\Pc$ betrachten. Diese sind sogar Isomorphismen und haben deshalb keine kritischen Punkte.
+\begin{satz}
+\label{gbdreisatz}
+Seien $x_1,x_2,x_3\in\Pc$ paarweise verschiedene abgeschlossene Punkte. Dann \ex\ eine \gb e \Tf\ $q$ mit \[x_1\longmapsto 0,\ x_2\longmapsto 1,\ x_3\longmapsto\infty\]
+\end{satz}
+\bew
+Setze $$q(x):=\frac{x-x_1}{x-x_3}\cdot\frac{x_2-x_3}{x_2-x_1}$$
+$q$ ist bijektiv, da $\det \left[\begin{array}{cc}
+1&x_1\\1&x_3
+\end{array}
+\right]\not=0
+$ gilt.\sieg
+\subsection{$K$-rationale Punkte}
+Sei $\sigma\in\Aut(C)$, wir definieren einen \rhom
+\begin{eqnarray*}
+C[X,Y]&\longrightarrow&C[X,Y]\\
+\sum a_{ij}X^iY^j&\longmapsto&\sum \sigma(a_{ij})X^iY^j
+\end{eqnarray*}
+indem wir auf den Koeffizienten der Polynome operieren. Das Urbild vom Punkt $(aX+bY)\in\Pc$ ist $(\sigma^{-1}(a)X+\sigma^{-1}(b)Y)$. Wir erhalten einen Isomorphismus
+\[\proj(\sigma):(\Pc)^\sigma\longrightarrow\Pc\]
+Das folgende Diagramm kommutiert:
+\[\xymatrix{
+(\Pc)^\sigma\ar[rr]^{\proj(\sigma)}\ar[d]&&\Pc\ar[d]\\
+C^\sigma\ar[rr]_{\Spec(\sigma)}&&C
+}\]
+Also ist die $C$-\var\ $(\Pc)^\sigma$ isomorph zur $C$-\var\ $\Pc$. Der Funktionenkörper $K(\Pc)$ ist isomorph zum Körper der rationalen Funktionen in einer Veränderlichen, also $C(X)$. Der durch $\proj(\sigma)$ induzierte Körperautomorphismus ist
+\begin{eqnarray*}
+\proj(\sigma)^*:C(X)&\longrightarrow&C(X)\\
+a\in C&\longmapsto&\sigma(a)\\
+X&\longmapsto&X
+\end{eqnarray*}
+\begin{df}
+Sei $K\subset C$ ein Unterkörper, dann heißt ein abgeschlossener Punkt $(aX+bY)\in\Pc$ $K$-rational, falls ein $\lambda\in C$ \ex, so daß $\lambda a,\lambda b\in K$ gilt.
+\end{df}
+\begin{bem}
+\label{qratinv}
+Für $\sigma\in\Aut(C:K)$ sind $K$-rationale Punkte invariant unter $\proj(\sigma)$.
+\end{bem}
+Denn: sei $(aX+bY)\in\Pc$ ein $K$-rationaler Punkt, d.h. es \ex\ ein $\lambda\in C$ mit $\lambda a,\lambda b\in K$. Es gilt
+\[
+\lambda a\in K\Longrightarrow\sigma^{-1}(\lambda a)\in K\Longrightarrow\sigma^{-1}(\lambda)\sigma^{-1}(a)\in K
+\]
+Analog gilt $\sigma^{-1}(\lambda)\sigma^{-1}(b)\in K$, also ist auch $(\sigma^{-1}(a)X+\sigma^{-1}(b)Y)$ $K$-rational.
+\begin{bem}
+\label{lok_inv_rat}
+Sei $(aX+bY)\in\Pc$ ein $K$-rationaler Punkt, dann \ex\ im lokalen Ring $C[X,Y]_{((aX+bY))}$ ein lokaler Parameter, der invariant unter $\Aut(C:K)$ ist.
+\end{bem}

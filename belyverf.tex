@@ -1,0 +1,203 @@
+\def\gka{gegen Konjugationen abgeschlossen}
+\section{Belyi Verfahren}
+\label{abschnitt_belyverf}
+In diesem Abschnitt werden wir zu einer Kurve $X$ über $C$, die bereits über $\alg$ definiert ist, einen endlichen Morphismus $t:X\longrightarrow\Pc$ konstruieren, so daß dessen kritische Werte in $\dreier$ liegen. Damit wäre für $C=\C$ eine Richtung des Satzes von Belyi bewiesen.
+
+Sei $X$ eine Kurve über $C$, die bereits über $\alg$ definiert ist, dann \ex\ nach Lemma \ref{koeck34} ein endlicher Morphismus $t_1:X\longrightarrow\Pc$, dessen kritische Werte $\alg$-rational sind. Sei $S_1$ die Menge der kritischen Werte von $t_1$, diese ist nach Folgerung \ref{endlkritendl} endlich. Nach Lemma \ref{koeck35} \ex\ ein endlicher Morphismus $t_2:\Pc\longrightarrow\Pc$, der jeden Punkt aus $S_1$ auf einen $\Q$-rationalen Punkt abbildet und dessen kritische Werte $\Q$-rational sind. Sei nun $S_2$ die Menge der kritischen Werte von $t_2$, dann \ex\ nach Lemma \ref{koeck36} ein endlicher Morphismus $t_3:\Pc\longrightarrow\Pc$, der $S_2\cup t_2(S_1)$ nach $\dreier$ abbildet und dessen kritische Werte in $\dreier$ liegen. $t:=t_3\circ t_2\circ t_1$ ist schließlich der gesuchte Morphismus.
+\subsection{Erster Schritt}
+Zu einer Kurve $X$ über $C$, die bereits über einem \algabg en Unterkörper $N\subset C$ definiert ist, \ex\ ein nicht-konstanter Morphismus \mbox{$t:X\longrightarrow\Pc$}, der über $N$ definiert ist. Denn: Es \ex\ eine \var\ $X_N$ über $N$, so daß $X=X_N\times_{\Spec N}\Spec C$ gilt. $X_N$ ist dann nach Bemerkung \ref{defkldim} eine Kurve. Wir wählen einen nicht-konstanten Morphismus $t_N:X_N\longrightarrow\Palg_N$, dieser induziert einen Morphismus $t:X\longrightarrow\Pc$. Ich erinnere daran, daß ein Morphismus zwischen vollständigen Kurven nach Satz \ref{welchemorphendl} genau dann endlich ist, wenn er nicht-konstant ist. Wir zeigen nun, daß die kritischen Werte von $t$ $N$-rational sind.
+
+Für das Belyi Verfahren ist der Spezialfall $N=\alg$ interessant.
+\begin{lem}
+\label{support_teilm_vom_anderen}
+Sei $K':K$ eine \KE, $A$ eine $K$-Algebra und $B$ eine $A$-Algebra. Setze $A':=A\otimes_K K'$ und $B':=B\otimes_K K'$.\\ Sei $\pi:\Spec B'\longrightarrow\Spec B$ die durch die Inklusion $B\hookrightarrow B'$ induzierte Projektion, dann gilt
+\[
+\pi(\supp\Omega_{B'/A'})\subset\supp\Omega_{B/A}
+\]
+\end{lem}
+\bew
+Es gilt
+\[B\otimes_A A'=B\otimes_A(A\otimes_K K')=(B\otimes_AA)\otimes_K K'=B\otimes_K K'=B'\]
+Nach Satz \ref{diff_supp_hilfe} gilt $\Omega_{B'/A'}\cong\Omega_{B/A}\otimes_B B'$. Sei $\p\in\Spec B'$ ein abgeschlossener Punkt, dann induziert $\pi$ einen lokalen \rhom\ $\varphi: B_{\pi(\p)}\longrightarrow B'_\p$. $B'_\p$ ist damit ein $B_{\pi(\p)}$-Modul, also gilt $B'_\p=B_{\pi(\p)}\otimes_{B_{\pi(\p)}}B'_\p$.
+\begin{eqnarray*}
+(\Omega_{B'/A'})_\p&\cong&\Omega_{B'/A'}\otimes_{B'}B'_\p\\
+&\cong&(\Omega_{B/A}\otimes_BB')\otimes_{B'}B'_\p\\
+&\cong&\Omega_{B/A}\otimes_B(B'\otimes_{B'}B'_\p)\\
+&\cong&\Omega_{B/A}\otimes_BB'_\p\\
+&\cong&\Omega_{B/A}\otimes_B(B_{\pi(\p)}\otimes_{B_{\pi(\p)}}B'_\p)\\
+&\cong&(\Omega_{B/A}\otimes_BB_{\pi(\p)})\otimes_{B_{\pi(\p)}}B'_\p\\
+&\cong&(\Omega_{B/A})_{\pi(\p)}\otimes_{B_{\pi(\p)}}B'_\p
+\end{eqnarray*}
+Aus $(\Omega_{B'/A'})_\p\not=0$ folgt damit $(\Omega_{B/A})_{\pi(\p)}\not=0$, d.h.
+\[\p\in\supp \Omega_{B'/A'}\Longrightarrow\pi(\p)\in\supp\Omega_{B/A}\]
+\sieg
+\begin{lem}
+\label{nnrataufnull}
+Sei $N\subset C$ ein \algabg er Unterkörper. Es gilt $C\otimes_NN[X]=C[X]$ und die durch $N[X]\hookrightarrow C[X]$ induzierte Projektion $\Spec C[X]\longrightarrow\Spec N[X]$ bildet alle nicht $N$-rationalen Punkte auf\\ \mbox{$(0)\in\Spec N[X]$} ab.
+\end{lem}
+\bew
+Sei $(X-\lambda)\in\Spec C[X]$ ein nicht $N$-rationaler Punkt, d.h. $\lambda\not\in N$ und damit ist $\lambda$ transzendent über $N$. Dann ist $X-\lambda$ für alle $0\not=p\in N[X]$ kein Teiler von $p$. Also wird unter der Inklusion $N[X]\hookrightarrow C[X]$ kein Element aus $(X-\lambda)$ außer der Null getroffen.\sieg
+\begin{lem}
+\label{koeck34}
+Sei $X$ eine Kurve über $C$, und sei $t:X\longrightarrow\Pc$ ein endlicher Morphismus. Seien $X$ und $t$ über einem \algabg en Unterkörper $N\subset C$ definiert. Dann sind die kritischen Werte von $t$ $N$-rational.
+\end{lem}
+\bew
+$X$ ist über $N$ definiert, d.h. es \ex\ eine $N$-\var\ $X_N$, so daß
+\[X=X_N\times_{\Spec N}\Spec C\]
+gilt. $\Pc$ ist über $N$ definiert, es gilt
+\[\Pc\cong\Palg_N\times_{\Spec N}\Spec C\]
+Seien $\alpha:X\longrightarrow X_N$ und $\beta:\Pc\longrightarrow\Palg_N$ die kanonischen Projektionen. $t$ ist über $N$ definiert, d.h. es \ex\ ein Morphismus $t_N:X_N\longrightarrow\Palg_N$ von $N$-\var en, so daß folgendes Diagramm kommutiert.
+\[\xymatrix{
+&X_N\ar[d]_{t_N}&&X\ar[ll]_\alpha\ar[d]^t\\
+&\Palg_N&&\Pc\ar[ll]^\beta
+}\]
+Nach Bemerkung \ref{defkldim} hat $X_N$ die gleiche Dimension wie $X$, ist also eindimensional und ist damit eine vollständige Kurve. $t$ ist ein nicht-konstanter Morphismus, damit ist auch $t_N$ nicht-konstant. Also ist $t_N$ ein endlicher Morphismus.
+
+%Q Ha S.88 Step 4
+Wir betrachten das affine Unterschema $\Palg_N\setminus\{\infty\}\cong\Spec N[X]$, dann gilt
+\[\beta^{-1}(\Palg_N\setminus\{\infty\})=\Pc\setminus\{\infty\}\cong\Spec C[X]\]
+
+$U:=t_N^{-1}(\Palg_N\setminus\{\infty\})$ ist wegen der Endlichkeit von $t_N$ ebenfalls affin, d.h. $U\cong\Spec B$. Das Urbild $U'$ von $U$ unter der Projektion $\alpha$ ist isomorph zu $\Spec B'$ mit $B'=B\otimes_N C$. Wir betrachten nun die kritischen Werte von $t_{|U'}$, denn $\infty\in\Pc$ ist ein $N$-rationaler Punkt und daher brauchen wir ihn nicht zu betrachten. Wir können uns nun auf affine Teile beschränken und erhalten folgendes kommutative Diagramm, wobei wir die Bezeichnungen für die Morphismen beibehalten.
+\[\xymatrix{
+&U\ar[d]_{t_N}&&U'\ar[ll]_\alpha\ar[d]^t\\
+&\Palg_N\setminus\{\infty\}&&\Pc\setminus\{\infty\}\ar[ll]^\beta
+}\]
+Es wird ein kommutives Diagramm von Ringhomomorphismen induziert:
+\[\xymatrix{
+B\ar[rr]&&B'=B\otimes_N C\\
+N[X]\ar[rr]\ar[u]&&C[X]\ar[u]
+}\]
+Wir haben nun die $C$ bzw. $N$-Algebrenhomomorphismen $C[X]\longrightarrow B'$ und $N[X]\longrightarrow B$. Die Menge der kritischen Punkte von $t$ stimmt nach Folgerung \ref{diffcritabg} mit $\supp\Omega_{B'/C[X]}$ überein. Nach Lemma \ref{support_teilm_vom_anderen} gilt
+\[\alpha(\supp\Omega_{B'/C[X]})\subset\supp\Omega_{B/N[X]}\]
+Daraus folgt
+\[\supp\Omega_{B'/C[X]}\subset\alpha^{-1}(\supp\Omega_{B/N[X]})\]
+Die Menge der kritischen Werte von $t$ stimmt mit $t(\supp\Omega_{B'/C[X]})$ überein. Es gilt
+\[
+t(\supp\Omega_{B'/C[X]})\subset t(\alpha^{-1}(\supp\Omega_{B/N[X]}))\subset\beta^{-1}(t_N(\supp\Omega_{B/N[X]}))
+\]
+Für die letzte Inklusion brauchen wir die Morphismen nur als Abbildungen zu betrachten. Es gilt $\beta\circ t=t_N\circ\alpha$, insbesondere gilt dann
+\begin{eqnarray*}
+&&\beta\circ t(\alpha^{-1}(\supp\Omega_{B/N[X]}))=t_N\circ\alpha(\alpha^{-1}(\supp\Omega_{B/N[X]}))\\
+&\Longrightarrow&\beta\circ t(\alpha^{-1}(\supp\Omega_{B/N[X]}))\subset t_N(\supp\Omega_{B/N[X]})\\
+&\Longrightarrow&\beta^{-1}(\beta\circ t(\alpha^{-1}(\supp\Omega_{B/N[X]})))\subset\beta^{-1}(t_N(\supp\Omega_{B/N[X]}))\\
+&\Longrightarrow&t(\alpha^{-1}(\supp\Omega_{B/N[X]}))\subset\beta^{-1}(t_N(\supp\Omega_{B/N[X]}))
+\end{eqnarray*}
+Damit sind nun alle Inklusionen in der obigen Kette gezeigt. Nach Lemma \ref{suppkeinnull} ist $(0)$ nicht in $\supp\Omega_{B/N[X]}$ enthalten, und aus Lemma \ref{nnrataufnull} folgt damit, daß $\beta^{-1}(t_N(\supp\Omega_{B/N[X]}))$ ausschließlich aus $N$-rationalen Punkten besteht.\sieg
+\subsection{Zweiter Schritt}
+Als nächstes werden wir zu einer endlichen Teilmenge $S\subset\Pc$ von $\alg$-rationalen Punkten einen nicht-konstanten und damit nach Satz \ref{welchemorphendl} endlichen Morphismus von $\Pc$ nach $\Pc$ konstruieren, der jeden Punkt aus $S$ auf einen $\Q$-rationalen Punkt abbildet und dessen kritische Werte $\Q$-rational sind.
+%N Ist die Definition sinnvoll? Ja, laut Algebra2 S.11
+\begin{df}
+Sei $S\subset\alg$ eine Teilmenge. $S$ heißt \gka, falls für jedes $s\in S$ und jeden Automorphismus $\sigma\in\Aut(\alg/\Q)$ stets $\sigma(s)\in S$ gilt. D.h. $\sigma(S)=S$ für alle $\sigma\in\Aut(\alg/\Q)$.
+\end{df}
+%N x kein Element von Q => Minpoly von x hat Grad > 1 => ... Körperauto auspacken... fortsetzen auf ganz \alg ... fertig
+\begin{bem}
+\label{kong_abg_einelem}
+Aus $S\subset\alg$ einelementig und \gka\ folgt $S\subset\Q$
+\end{bem}
+\begin{bem}
+\label{kong_abg_bilder}
+Sei $p\in\Q[X]$, dann ist $p(S)$ \gka, falls $S$ \gka\ ist.
+\end{bem}
+\bew
+Sei $x\in p(S)$, d.h. es \ex\ $s\in S$ mit $p(s)=x$. Es gilt
+\[\sigma(x)=\sigma(p(s))=p(\sigma(s))\]
+S ist \gka, also gilt $\sigma(s)\in S$ und daraus folgt $\sigma(x)\in p(S)$.\sieg
+%Denn: $\sigma(p(S))=p(\sigma(S))=p(S)$
+\begin{bem}
+\label{kong_abg_nullst}
+Sei $p\in\Q[X]$, dann ist $N(p):=\{x\in\alg\mid p(x)=0\}$ \gka.
+\end{bem}
+\bew
+Sei $x\in\alg$ mit $p(x)=0$ und sei $\sigma\in\Aut(\alg/\Q)$. Es gilt
+\[p(\sigma(x))=\sigma(p(x))=\sigma(0)=0\]
+\sieg
+\begin{bem}
+\label{kong_abg_machen}
+Sei $S\subset\alg$ eine endliche Teilmenge, dann \ex\ eine endliche Teilmenge $\overline S\subset\alg$ mit $S\subset\overline S$, so daß $\overline S$ \gka\ ist.
+\end{bem}
+\bew
+Für $s\in S$ bezeichne $m_s\in\Q[X]$ das Minimalpolynom von $s$ über $\Q$. Wir definieren ein Polynom
+\[p:=\prod\limits_{s\in S}m_s\]
+Es gilt $p\in\Q[X]$ und $S\subset N(p)$. Setze $\overline S:=N(p)$, dann ist $\overline S$ nach Bemerkung \ref{kong_abg_nullst} \gka.\sieg
+\begin{bem}
+\label{kong_abg_expoly}
+Sei $S\subset\alg$ endlich und \gka. Setze $n:=\#S$, dann \ex\ ein nicht-konstantes Polynom $p\in\Q[X]$ vom Grad $n$, so daß $p(S)=\{0\}$ gilt.
+\end{bem}
+\bew
+Setze
+\[p:=\prod\limits_{s\in S}(X-s)\]
+Sei $\sigma\in\Aut(\alg/\Q)$, dann ist $\sigma_{|S}:S\longrightarrow S$ eine Permutation auf $S$, und damit gilt $\sigma(p)=p$. Daraus folgt $p\in\Q[X]$.\sieg
+Das folgende Lemma gibt uns den gewünschten Morphismus, da wir Polynome nach Abschnitt \ref{abschnitt_polymor} als Morphismen von $\Pc$ nach $\Pc$ auffassen können.
+%Q Bely's Theorem Revisited, Lemma 3.5
+\begin{lem}
+\label{koeck35}
+Sei $S\subset\alg$ eine endliche Teilmenge. Es \ex\ ein nicht-konstantes Polynom $p\in\Q[X]$, so daß $p(S)\subset\Q$ gilt und alle kritischen Werte von $p$ in $\Q$ liegen.
+\end{lem}
+\bew
+Nach Bemerkung \ref{kong_abg_machen} können wir annehmen, daß $S$ \gka\ ist. Induktion nach $n=\#S$:
+\begin{description}
+\item[$n\leq1$:]\ \\
+Setze $p(X):=X$, dann hat $p$ keine kritischen Werte und nach Bemerkung \ref{kong_abg_einelem} gilt $p(S)=S\subset\Q$.
+\item[$n>1$:]\ \\
+Nach Bemerkung \ref{kong_abg_expoly} \ex\ ein nicht-konstantes Polynom $p_1\in\Q[X]$ vom Grad $n$ mit \mbox{$p_1(S)=\{0\}$}. ${p_1}'$ hat höchstens $n-1$ Nullstellen. Also hat
+\[S_1:=p_1\{r\in\alg\mid {p_1}'(r)=0\}\]
+höchstens $n-1$ Elemente und ist nach Bemerkung \ref{kong_abg_bilder} und \ref{kong_abg_nullst} \gka. Nach \iv\ \ex\ ein nicht-konstantes Polynom $p_2\in\Q[X]$, so daß $p_2(S_1)\subset\Q$ gilt und alle kritischen Werte von $p_2$ in $\Q$ liegen. Setze $p:=p_2\circ p_1$, damit gilt \\$p(S)=p_2\{0\}\subset\Q$. Es bleibt zu zeigen, daß alle kritischen Werte von $p$ in $\Q$ liegen. Es gilt \[p'(X)={p_2}'(p_1(X))\cdot{p_1}'(X)\]
+Sei $z$ eine Nullstelle von $p'$, d.h. $p_2(p_1(z))$ ist ein kritischer Wert von $p$.
+\begin{description}
+\item[\rm Fall 1:]\ \\
+${p_1}'(z)=0\impl p_1(z)\in S_1\impl p_2(p_1(z))\in p_2(S_1)\subset\Q$
+\item[\rm Fall 2:]\ \\
+${p_2}'(p_1(z))=0\impl p_1(z)$ ist ein kritischer Punkt von $p_2\impl p_2(p_1(z))$ ist ein kritischer Wert von $p_2\impl p_2(p_1(z))\in\Q$.
+\end{description}
+\end{description}
+\sieg
+\subsection{Dritter Schritt}
+Als letztes konstruieren wir einen nicht-konstanten und damit endlichen Morphismus $\Pc\longrightarrow\Pc$, der eine endliche Teilmenge $S\subset\Pc$ von $\Q$-rationalen Punkten nach $\dreier$ abbildet, so daß die kritischen Werte in $\dreier$ liegen.
+
+Da wir Polynome und \gb e \Tf en als Morphismen auffassen können\footnote{siehe Abschnitt \ref{abschnitt_polymor} und \ref{abschnitt_gbmor}}, können wir die folgenden Beweise ein wenig einfacher formulieren.
+\begin{lem}
+\label{lemma_vierer}
+Sei $x\in\Pc-\dreier$ ein $\Q$-rationaler Punkt. Dann \ex\ ein nicht-konstanter Morphismus $q$, der $\{0,1,\infty,x\}$ nach $\dreier$ abbildet und dessen kritische Werte in $\dreier$ liegen.
+\end{lem}
+Als erstes wählen wir eine \gb e \Tf\ $q_2$, die $\{0,1,\infty,x\}$ nach $\{0,1,\infty,x'\}$ abbildet, wobei $x'\in(0,1)$ gilt. Wenn $x$ bereits in $(0,1)$ liegt, setzen wir $q_2:=\id$. Falls $x$ dies nicht erfüllt, gibt es zwei Fälle:
+\begin{description}
+\item[\rm Fall $x<0$:]\ \\
+Setze $q_2:=\frac1{1-x}$
+\item[\rm Fall $x>1$:]\ \\
+Setze $q_2:=\frac1x$
+\end{description}
+Als nächstes wählen wir ein Polynom $q_1$, das $\{0,1,\infty,x'\}$ nach $\dreier$ abbildet und dessen kritische Werte in $\dreier$ liegen.
+Nun gilt $x'\in(0,1)$, also hat $x'$ eine Darstellung $x'=\frac{m}{m+n}$ mit $m,n\in\Nat$. Setze $$q_1(z):=\frac{(m+n)^{m+n}}{m^m n^n}z^m(1-z)^n$$
+\newpage
+Es gilt:
+\begin{enumerate}
+\item $q_1(0)=0$
+\item $q_1(1)=0$
+\item $q_1(\infty)=\infty$
+\item $q_1(x')=1$
+\end{enumerate}
+Die Rechnung zu 4.:
+\[{x'}^m(1-x')^n=\left(\frac{m}{m+n}\right)^m\left(\frac{n}{m+n}\right)^n=\frac{m^m n^n}{(m+n)^{m+n}}\]
+Nun müssen wir noch die kritischen Werte von $q_1$ bestimmen.
+\begin{eqnarray*}
+q_1'(z)&=&konst\cdot mz^{m-1}(1-z)^n-z^mn(1-z)^{n-1}\\
+&=&konst\cdot z^{m-1}(1-z)^{n-1}(m(1-z)-zn)\\
+&=&konst\cdot z^{m-1}(1-z)^{n-1}(m-(m+n)z)
+\end{eqnarray*}
+Als kritische Punkte kommen also $0,1,\infty,x'$ in Frage, damit liegen die kritischen Werte von $q_1$ in $\dreier$.
+
+Den gesuchten Morphismus $q$ erhalten wir schließlich durch das Kompositum aus $q_1$ und $q_2$.
+\[q:=q_1\circ q_2\]
+\sieg
+\begin{lem}
+\label{koeck36}
+Sei $S\subset\Q\cup\{\infty\}$ eine endliche Teilmenge. Es \ex\ ein nicht-konstanter Morphismus $q:\P1\longrightarrow\P1$, so daß $q(S)\subset\{0,1,\infty\}$ und alle kritischen Werte von $q$ in $\{0,1,\infty\}$ liegen.
+\end{lem}
+Beweis per Induktion nach $n=\#S$
+\begin{description}
+\item[$n\leq3$:]\ \\
+Wir wählen eine \gb e \Tf\ $q$, die $S$ nach $\dreier$ abbildet. (siehe Satz \ref{gbdreisatz})
+\item[$n>3$:]\ \\
+Wir können annehmen, daß $\dreier\subset S$ gilt. Sei $x\in S\setminus\dreier$ ein weiterer Punkt, dann \ex\ nach Lemma \ref{lemma_vierer} ein nicht-konstanter Morphismus $q_1$, der $\{0,1,\infty,x\}$ nach $\dreier$ abbildet und dessen kritische Werte in $\dreier$ liegen. Es gilt dann $\#q_1(S)<n$. Nach \iv\ \ex\ ein nicht-konstanter Morphismus $q_2$, der $q_1(S)$ nach $\dreier$ abbildet und dessen kritische Werte in $\dreier$ liegen. $q:=q_2\circ q_1$ ist schließlich der gesuchte Morphismus.
+\end{description}
+\sieg

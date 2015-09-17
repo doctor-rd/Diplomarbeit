@@ -1,0 +1,122 @@
+\def\Z{\mathbbm{Z}}
+\def\ord{\mathop{\rm ord}\nolimits}
+\def\Div{\mathop{\rm Div}\nolimits}
+\section{Vorbereitungen III}
+\subsection{Verzweigung}
+\label{kapitel_verzw}
+Sei $X$ eine Kurve über $C$, dann ist für jeden abgeschlossenen Punkt $x\in X$ der lokale Ring $\O_{X,x}$ ein diskreter Bewertungsring. Sei $K(X)$ der Körper der rationalen Funktionen auf $X$, dann gilt $K(X)\cong Q(\O_{X,x})$. Im Folgenden fasse ich $\O_{X,x}$ als Unterring von $K(X)$ auf. Es \ex\ eine Bewertung $v_x$ auf $K(X)$ mit $v_x(c)=0$ für alle $c\in C$, so daß
+\[\O_{X,x}=\{f\in K(X)\mid v_x(f)\geq 0\}\cup\{0\}\]
+gilt. Sei $\m_x$ das maximale Ideal von $\O_{X,x}$, dann gilt
+\[\m_x=\{f\in K(X)\mid v_x(f)>0\}\cup\{0\}\]
+Sei $t\in\m_x\setminus\m_x^2$, dann wird $\m_x$ nach Lemma \ref{diff_diskret_modul} von $t$ erzeugt. Für $0\not=f\in\m_x$ \ex\ ein $g\in\O_{X,x}$, so daß $f=g\cdot t$ gilt. Per Definition einer diskreten Bewertung gilt $v_x(f)=v_x(g)+v_x(t)$. Da das für alle $0\not=f\in\m_x$ gilt, muß $v_x(t)=1$ gelten. Ein solches $t$ heißt \textbf{lokaler Parameter} in $x$.
+
+$\m_x^n$ wird von $t^n$ erzeugt, für $f\in\O_{X,x}\setminus\{0\}$ gilt $v_x(f)=\max\{n\in\nat\mid f\in\m_x^n\}$. Wir nennen $v_x(f)$ die \textbf{Nullstellenordnung} von $f$ in $x$. Sei nun $f\in K(X)\setminus\{0\}$, dann existieren $a,b\in\O_{X,x}\setminus\{0\}$, so daß $f=\frac ab$ gilt. Es gilt
+\[v_x(f)=v_x(a)-v_x(b)\]
+Wir nennen $\ord_x(f):=v_x(f)$ die \textbf{Ordnung} von $f$ in $x$ und sagen, daß $f$ einen \textbf{Pol} in $x$ hat, falls $\ord_x(f)<0$ gilt, in diesem Fall ist $-\ord_x(f)$ die \textbf{Polordnung}.\bigskip
+%Q Ha S.299
+\begin{df}
+Seien $X$ und $Y$ vollständige Kurven über $C$, und sei \mbox{$f:X\longrightarrow Y$} ein endlicher Morphismus. Sei $P\in X$ ein abgeschlossener Punkt, dann induziert $f$ einen lokalen $C$-Algebrenhomomorphismus
+\[\varphi:\O_{Y,f(P)}\longrightarrow\O_{X,P}\]
+Sei $t\in\O_{Y,f(P)}$ ein lokaler Parameter in $f(P)$. $\O_{X,P}$ ist ein diskreter Bewertungsring, sei $v_P$ die zugehörige Bewertung, dann heißt
+\[e_P:=v_P(\varphi(t))\]
+der \textbf{Verzweigungsindex} von $f$ in $P$. $f$ heißt verzweigt in $P$, falls $e_P>1$ gilt, und unverzweigt in $P$, falls $e_P=1$ gilt.
+\end{df}
+$e_P$ ist wohldefiniert, da $\varphi$ injektiv ist, also insbesondere $\varphi(t)\not=0$ gilt.
+\begin{bem}
+\label{verzequivkrit}
+$f$ ist genau dann in $P$ verzweigt, wenn $P$ ein kritischer Punkt von $f$ ist.
+\end{bem}
+\bew
+Sei $\varphi:\O_{Y,f(P)}\longrightarrow\O_{X,P}$ der durch $f$ induzierte lokale \rhom, und sei $t\in\O_{Y,f(P)}$ ein lokaler Parameter $f(P)$. \zz $e_P>1$ gilt genau dann, wenn die Cotangentialabbildung $\widetilde\varphi:\m_{f(P)}/\m_{f(P)}^2\longrightarrow\m_P/\m_P^2$ die Nullabbildung ist. (siehe Definition \ref{kritpktdef})
+
+Nun ist $e_P>1$ äquivalent zu $\varphi(t)\in\m_{P}^2$. Das wiederum ist äquivalent dazu, daß $\widetilde\varphi$ die Nullabbildung ist.\sieg
+\begin{bem}
+\label{verzwmult}
+Seien $X$, $Y$ und $Z$ Kurven über $C$ und seien $f:X\longrightarrow Y$ und $g:Y\longrightarrow Z$ endliche Morphismen von $C$-\var en. Ist $P\in X$ ein abgeschlossener Punkt, dann ist der Verzweigungsindex von $g\circ f$ in $P$ das Produkt der Verzweigungsindizes von $f$ in $P$ und von $g$ in $f(P)$.
+\end{bem}
+Dies sieht man leicht, wenn man die lokalen Ringhomomorphismen komponiert.\sieg
+Der folgende Satz ist ein Resultat, das wir bereits aus der Theorie der Riemannschen Flächen  kennen:
+\begin{minilemma}
+Eine nicht-konstante meromorphe Funktion auf einer kompakten Riemannschen Fläche nimmt jeden Wert mit Vielfachheiten gleich oft an.
+\end{minilemma}
+\begin{satz}
+\label{alles_gleichoft}
+Sei $f:X\longrightarrow Y$ ein endlicher Morphismus zwischen Kurven über $C$ vom Grad $n$. Sei $Q\in Y$ ein abgeschlossener Punkt, dann gilt
+\[
+\sum_{P\in f^{-1}(Q)}e_P=n
+\]
+$e_P$ bezeichnet den Verzweigungsindex von $f$ im Punkt $P$.
+\end{satz}
+Ein endlicher Morphismus vom Grad $n$ nimmt also jeden Wert mit Vielfachheiten genau $n$-mal an. Falls $Q$ kein kritischer Wert von $f$ ist, hat $Q$ genau $n$ Urbilder (siehe Bemerkung \ref{verzequivkrit}). Wir folgern weiterhin, daß der Grad eines endlichen Morphismus eine obere Schranke für den Verzweigungsindex in einem Punkt ist, d.h. $e_P\leq n$.
+\begin{df}
+Sei $f:X\longrightarrow Y$ ein endlicher Morphismus zwischen Kurven über $C$ vom Grad $n$. Sei $P\in X$ ein abgeschlossener Punkt, dann heißt $f$ in $P$ \textbf{total verzweigt}, falls $e_P=n$ gilt.
+\end{df}
+\subsection{Satz von Riemann-Roch}
+Das Ziel von diesem Abschnitt ist, zu einer gegebenen vollständigen Kurve $X$ und einem abgeschlossenen Punkt $P$ eine nicht-konstante rationale Funktion zu finden, die ihren einzigen Pol im Punkt $P$ hat.
+\begin{df}
+Sei $X$ eine Kurve über $C$ und $\widetilde X\subset X$ die Menge aller abgeschlossenen Punkte von $X$. Sei
+\[
+\Div(X):=\bigoplus\limits_{x\in\widetilde X}\Z
+\]
+die von den Elementen aus $\widetilde X$ erzeugte freie abelsche Gruppe. Ein \textbf{Divisor} auf $X$ ist dann ein Element aus $\Div(X)$.
+\end{df}
+Ein Divisor $D$ auf $X$ ist also eine formale endliche Linearkombination von abgeschlossen Punkten, d.h.
+\[
+D=\sum\limits_{x\in\widetilde X}n_x\cdot x
+\]
+mit $n_x\in\Z$ und $n_x\not=0$ für endlich viele $x\in\widetilde X$. Seien $D=\sum n_x\cdot x$ und $D'=\sum n_x'\cdot x$ zwei Divisoren auf $X$. Wir setzen
+\[
+D\leq D':\Longleftrightarrow n_x\leq n_x'\textrm{ für alle }x\in\widetilde X
+\]
+Wir erhalten damit eine partielle Ordnungrelation auf $\Div(X)$.
+\bigskip\\
+%Q Ha S.131
+Sei $f\in K(X)$ eine rationale Funktion, dann gilt $\ord_x(f)\not=0$ für endlich viele $x\in\widetilde X$. Wir erhalten also einen Divisor $(f)$ auf $X$:
+\[
+(f):=\sum\limits_{x\in\widetilde X}\ord_x(f)\cdot x
+\]
+Ein Divisor der Form $(f)$ heißt \textbf{Hauptdivisor}.
+\begin{df}
+Sei $D$ ein Divisor auf $X$. Dann bezeichnet
+\[
+\deg(D):=\sum\limits_{x\in\widetilde X}n_x
+\]
+den \textbf{Grad} von $D$.
+\end{df}
+%Q Ha S.132
+\begin{bem}
+Sei $X$ eine vollständige Kurve, und sei $D$ ein Hauptdivisor auf $X$, dann gilt $\deg D=0$.
+\end{bem}
+%Q Lüt S.111
+\begin{df}
+Sei $X$ eine vollständige Kurve, dann ist der $C$-Vektorraum $\Omega_{X/\Spec C}$ endlich-dimensional. Die natürliche Zahl
+\[
+g:=\dim_C\Omega_{X/\Spec C}
+\]
+heißt das \textbf{Geschlecht} von $X$.
+\end{df}
+Der folgende Satz ist eine Abschätzung, die direkt aus dem Satz von Riemann-Roch folgt.
+\begin{satz}
+\label{satz_rr}
+Sei $X$ eine vollständige Kurve vom Geschlecht $g$, und sei $D$ ein Divisor auf $X$. Setze
+\[
+L(D):=\{f\in K(X)\mid(f)+D\geq0\}
+\]
+dann ist $L(D)$ ein endlich-dimensionaler $C$-Vektorraum und es gilt
+\[
+\dim_C L(D)\geq\deg(D)+1-g
+\]
+\end{satz}
+\sieg
+Nun können wir unser Hauptresultat formulieren:
+\begin{fol}
+\label{fkt_mit_polordng}
+Sei $X$ eine vollständige Kurve vom Geschlecht $g$, und sei $P\in X$ ein abgeschlossener Punkt. Dann \ex\ eine nicht-konstante rationale Funktion $z\in K(X)\setminus C$, die $P$ als einzigen Pol, wobei die Polordnung in $P$ höchstens $g+1$ ist, hat. Das heißt
+\[\ord_P(z)\geq-(g+1)\]
+und für einen abgeschlossenen Punkt $Q\in X$ gilt
+\[\ord_Q(z)\geq 0\]
+\end{fol}
+\bew
+Setze $D:=(g+1)\cdot P$, dann gilt $\deg(D)=g+1$. Aus Satz \ref{satz_rr} folgt
+\[\dim_C L(D)\geq (g+1)+1-g=2\]
+Also \ex\ ein $z\in K(X)\setminus C$ mit $(f)\geq -D$.\sieg
